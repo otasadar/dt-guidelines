@@ -1,0 +1,13 @@
+# *******************************************
+# DT Responsive Guidelines excluded files ***
+# *******************************************
+
+# Backups
+!backup
+
+# SASS cache
+css/.sass-cache
+
+# All HTML files except index.html
+/*.html
+!index.html

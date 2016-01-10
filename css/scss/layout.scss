@@ -1,0 +1,534 @@
+@charset "UTF-8";
+
+// Base
+$baseColorOrange: 				#fba116;
+$baseColorMaroon: 				#c62926;
+
+// Font
+$fontColor:							#000000;
+$fontSize: 							14px;
+$fontFamily:						Arial, Helvetica, sans-serif;
+
+// Links
+$linkColor:							#b82329;
+$linkColorHover:				#fdb02d;
+
+// Field
+$fieldTextColor:				#5c5c5c;
+$fieldBorderColor:			#e1e1e1;
+$fieldBorderRadius:			4px;
+$fieldPlaceholderColor: 	#cccccc;
+$fieldBGColor:					#f1f1f1;
+
+// Button
+$btnSubmitColor:				#5b5b5d;
+$btnResetColor:					#888888;
+$btnSearchColor:				#cccccc;
+$btnHoverColor:					#ffffff;
+
+// Messages
+$infoBG:								#d9edf7;
+$infoColor:							#31708f;
+$warningBG:							#fcf8e3;
+$warningColor:					#8a6d3b;
+$errorColor:						#a94442;
+$successBG:							#dff0d8;
+$successColor:					#3c763d;
+
+
+/*********************************************************************
+*** GLOBAL ***********************************************************
+*********************************************************************/
+/* LISTS */
+#main-section ul li, 
+#main-section ol li {
+	margin: 6px 0px;
+}
+
+/* INPUT TEXT/PWD */
+input[type="text"],
+input[type="password"] {
+	color: $fieldTextColor;
+}
+
+/* RADIO BUTTONS */
+.radio-group input[type="radio"] {
+	display: block;
+	margin: 8px 0px 0px;
+}
+
+/* FILE UPLOAD INPUT */
+input[type="file"] {
+}
+
+/* SELECT */
+.select.has-select-all option:first-child {
+	margin-bottom: 0.5em;
+	padding-bottom: 0.5em;
+	border-bottom: 1px dashed rgba($baseTextColor, 0.25);
+	font-style: italic;
+}
+
+/* BUTTON */
+.btn {
+	background: transparent none;
+}
+.btn.btn-default,
+.btn.btn-submit {
+	border: 1px solid $btnSubmitColor;
+	color: $btnSubmitColor;
+	&:hover {
+		background: $btnSubmitColor;
+		color: $btnHoverColor;
+	}
+}
+.btn.btn-reset,
+.btn.btn-cancel {
+	border: 1px solid $btnResetColor;
+	color: $btnResetColor;
+	&:hover {
+		background: $btnResetColor;
+		color: $btnHoverColor;
+	}
+}
+.btn.btn-search {
+	border: 1px solid $btnSearchColor;
+	&:hover {
+		background: $btnSearchColor;
+		color: $btnHoverColor;
+	}
+}
+.row-actions { /* action buttons */
+	text-align: center;
+	&.form-group {
+		margin-top: 0.5em; // form-gourp have elements like input, so line height is larger and additional margin req. to valign
+	}
+	& .btn {
+		margin-left: 1.5em;
+	}
+}
+
+/* ICONS */
+.btn.btn-edit,
+.btn.btn-delete,
+.btn.btn-add,
+.btn.btn-ok,
+.btn.btn-reject,
+.btn.btn-return {
+	padding: 0px;
+	&.active,
+	&:active {
+		box-shadow: none;
+	}
+}
+.btn.btn-add,
+.btn.btn-ok {
+	color: $successColor;
+}
+.btn.btn-delete,
+.btn.btn-reject {
+	color: $errorColor;
+}
+.btn.btn-edit,
+.btn.btn-return {
+	color: $warningColor;
+}
+
+/* TABLES */
+.pcfc-table {
+	padding-top: 0;
+	padding-bottom: 0;
+}
+.pcfc-table-tr {
+	border-bottom: 1px solid $fieldBorderColor;
+	&:last-child {
+		margin-bottom: 2em;
+	}
+	.panel-body.pcfc-table &:last-child { // when table takes the whole panel we remove last border, as table has it
+		margin-bottom: 0em;
+		border-bottom: none;
+	}
+}
+
+.pcfc-table-td,
+.pcfc-table-hd {
+	line-height: 1.5em;
+	padding-top: 1em;
+	padding-bottom: 1em;
+}
+.pcfc-table-hd {
+	font-weight: bold;
+}
+
+.pcfc-table-td.row-no,
+.pcfc-table-hd.row-no,
+.pcfc-table-td .row-no,
+.pcfc-table-hd .row-no {
+	padding-left: 0px;
+	padding-right: 0px;
+	text-align: center;
+}
+
+.pcfc-table-tr-clickable { /* collapsible row trigger */
+	cursor: pointer;
+}
+.pcfc-table-tr-fullinfo { /* collapsible row data */
+	background: $infoBG none;
+}
+
+/* LABEL */
+.pcfc-label {
+	font-weight: bold;
+}
+
+/*** BOOTSTRAP ******************************************************/
+/* PANEL */
+.panel-group .panel {
+	border: 1px solid $fieldBorderColor;
+	
+	& + .panel {
+		margin-top: 1.5em;
+	}
+	& .panel-head {
+		padding: 1em;
+		border-bottom: 1px solid $fieldBorderColor;
+		border-top-left-radius: $fieldBorderRadius;
+		border-top-right-radius: $fieldBorderRadius;
+		background: $fieldBackgroundColor;
+		font-size: 1.25em;
+		font-weight: bold;
+		color: $baseColorBlueLighter;
+	}
+	& .panel-footer {
+		border-top: 1px solid $fieldBorderColor;
+	}
+	& .panel-footer .pagination {
+		margin: 0.5em 0em;
+	}
+}
+
+/* FORM */
+@media screen and (max-width: 992px) {
+	.form-horizontal .control-label[class*="col-sm-12"] {
+		text-align: left;
+	}
+}
+.form-buttons {
+	text-align: right;
+}
+.form-buttons a + a,
+.form-buttons a + input,
+.form-buttons input + a,
+.form-buttons input + input {
+	margin-left: 1em;
+}
+
+/* FORM VALIDATION */
+.validation-errors-container {
+	font-weight: bold;
+}
+.form-group.has-error .switch .btn {
+	border-top: 1px solid $errorColor;
+	border-bottom: 1px solid $errorColor;
+}
+.form-group.has-error .switch .btn:first-child {
+	border-left: 1px solid $errorColor;
+}
+.form-group.has-error .switch .btn:last-child {
+	border-right: 1px solid $errorColor;
+}
+
+/* FORM REQUIRED FIELD */
+.form-group.required .control-label::after {
+    content: "*";
+	color: $errorColor;
+}
+
+/* GLYPHS */
+.glyphicon-plus {
+	color: $successColor;
+}
+.glyphicon-pencil {
+	color: $warningColor;
+}
+.glyphicon-remove {
+	color: $errorColor;
+}
+
+/*** COMPONENTS *****************************************************/
+/* MODAL */
+.modal.in .modal-dialog {
+    transform: translate(0px, 2em);
+}
+.modal-msg-type-default .modal-body,
+.modal-msg-type-success .modal-body,
+.modal-msg-type-warning .modal-body,
+.modal-msg-type-error .modal-body {
+	margin-bottom: 0px;
+}
+
+/* CALENDAR */
+.is-datepicker {
+	cursor: pointer;
+}
+
+/* MOVE OPTIONS FROM SELECT TO SELECT */
+.ddl-available-assigned-container .ddl-available-container,
+.ddl-available-assigned-container .ddl-assigned-container {
+	display: table-cell;
+	width: 34%;
+}
+.ddl-available-assigned-container .ddl-available-assigned-controls {
+	display: table-cell;
+	text-align: center;
+	vertical-align: middle;
+	
+	&.move-h {
+		width: 10%;
+	}
+	&.move-v {
+		width: 1%;
+	}
+	
+	& .btn {
+		width: 100%;
+	}
+}
+
+/* PAGINATION */
+.pagination-container {
+	display: table;
+	padding: 0.5em 0em;
+	& .pagination {
+		display: table-cell;
+	}
+	& .items-per-page {
+		display: table-cell;
+	}
+	& .items-per-page button {
+		background-color: #ffffff;
+	}
+	& .pagination + .items-per-page {
+		border-left: 1em solid transparent;
+		border-right: 1em solid transparent;
+	}
+}
+
+/* SEARCH */
+.form-search {
+}
+
+/*********************************************************************
+*** LAYOUT ***********************************************************
+*********************************************************************/
+body {
+	min-width: 600px;
+	margin: 0px;
+	padding: 0px;
+	background: #e6e6e6 none;
+	font: 14px Arial, Helvetica, sans-serif;
+}
+
+/*** HEADER *********************************************************/
+.navbar {
+	/*height: 3em;*/
+	background: $baseColorBlue none;
+}
+
+/* WEBSITE NAME */
+.navbar-brand,
+.navbar-brand:focus,
+.navbar-brand:hover {
+	color: #ffffff;
+}
+
+/* MENU */
+.navbar .nav li a {
+	color: #ffffff; 
+}
+.navbar .nav li a:focus,
+.navbar .nav li a:hover {
+	background: inherit;
+	text-decoration: underline;
+}
+
+.navbar .nav li .dropdown-toggle,
+.navbar .nav li .dropdown-toggle:focus,
+.navbar .nav li .dropdown-toggle:hover { /* top level menu items with dropdown */
+	text-decoration: none;
+	background-color: $baseColorBlue; 
+	color: #ffffff;
+}
+
+.navbar .nav li .dropdown-menu a { /* sublevel menu items */
+	color: $baseColorBlue;
+	@media only screen and (max-width : 768px) {
+		color: #ffffff;
+	}
+}
+
+.navbar-toggle { /* collapsed menu */
+	border: 1px solid #ffffff;
+}
+.navbar-toggle .icon-bar {
+	background-color: #ffffff;
+}
+
+/*** CONTENT ********************************************************/
+#main-section .main-container {
+	min-height: 400px;
+	margin: 3em 1em;
+	padding: 3em 2em 8em;
+	border: 1px solid #d1d1d1;
+	background: #ffffff none;
+	@media only screen and (max-width : 768px) {
+		margin: 3em 0em;
+	}
+}
+
+/* ALERTS */	
+.alerts-container .alert:last-child {
+	margin-bottom: 3em;
+}
+
+/*** FOOTER *********************************************************/
+.footer {
+	position: fixed;
+	left: 0px;
+	bottom: 0px;
+	width: 100%;
+	padding: 2em;
+	background: $baseColorBlue none;
+	font-size: 0.85em;
+	color: #ffffff;
+}
+.footer a,
+.footer a:focus,
+.footer a:hover {
+	color: #ffffff;
+}
+
+.footer-left {
+	text-align: left;
+}
+.footer-right {
+	text-align: right;
+}
+.footer-center {
+	text-align: center;
+}
+
+/*********************************************************************
+*** LOGIN PAGE *******************************************************
+*********************************************************************/
+#main-section .login-container .form-buttons a {
+	color: $linkForgotPassword;
+	text-decoration: underline;
+}
+
+/*********************************************************************
+*** ROLES TO SERVICES PAGE *******************************************
+*********************************************************************/
+.roles-to-services-container .services-controls .btn.btn-add {
+	padding: 0;
+	font-weight: bold;
+}
+
+/*********************************************************************
+*** WORKFLOWS (LIST) PAGE ********************************************
+*********************************************************************/
+.approval-workflows-container .btn-add {
+	float: right;
+	padding: 0px;
+}
+.approval-workflows-container .inner-row {
+	margin-bottom: 1em;
+}
+.approval-workflows-container .panel-group .panel .panel-footer {
+	border-top: none;
+}
+
+/*********************************************************************
+*** WORKFLOWS (SINGLE) PAGE ******************************************
+*********************************************************************/
+.approval-workflows-form-container .select[multiple=multiple] {
+	height: 200px;
+}
+
+/*********************************************************************
+*** PCFC USERS (LIST) PAGE *******************************************
+*********************************************************************/
+.manage-internal-users-container .btn-add {
+	float: right;
+	padding: 0px;
+}
+
+/*********************************************************************
+*** PCFC USERS (FORM) PAGE *******************************************
+*********************************************************************/
+.manage-internal-users-form-container #generate-password-value {
+	text-align: left;
+	font-weight: bold;
+	color: $successColor;
+}
+
+
+/*********************************************************************
+*** APPROVE PASSES (INTERNAL) PAGE ***********************************
+*********************************************************************/
+.passes-list-internal-container .inner-row::after {
+	content: ' ';
+	display: table;
+	clear: both;
+}
+.passes-list-internal-container .inner-row.inner-row-last > div {
+	margin-bottom: 1.5em;
+}
+
+.passes-list-internal-container .visitor-photo {
+	width: 80px;
+	height: 120px;
+	margin: 0 auto;
+	border: 1px solid $fieldBorderColor;
+	background: #ffffff;
+}
+
+.pass-status {
+	font-weight: bold;
+}
+.pass-status-inner {
+	margin-top: 1em;
+	font-weight: bold;
+	text-align: center;
+}
+.pass-status-pending {
+	color: $infoColor;
+}
+.pass-status-rejected {
+	color: $errorColor;
+}
+.pass-status-returned {
+	color: $warningColor;
+}
+.pass-status-ready-for-printing {
+	color: $successColor;
+}
+
+.passes-list-internal-container .panel-group .panel .panel-footer {
+	border-top: none;
+}
+
+/*********************************************************************
+*** APPLY FOR PASS PAGE **********************************************
+*********************************************************************/
+#main-section .apply-container .payment-total {
+	float: right;
+	color: $successColor;
+}
+
+
+
+
+
+
+
