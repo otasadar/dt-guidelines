@@ -1,0 +1,534 @@
+/* line 5, C:/Ruby21/lib/ruby/gems/2.1.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* line 22, C:/Ruby21/lib/ruby/gems/2.1.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html {
+  line-height: 1;
+}
+
+/* line 24, C:/Ruby21/lib/ruby/gems/2.1.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 26, C:/Ruby21/lib/ruby/gems/2.1.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 28, C:/Ruby21/lib/ruby/gems/2.1.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 30, C:/Ruby21/lib/ruby/gems/2.1.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 103, C:/Ruby21/lib/ruby/gems/2.1.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 32, C:/Ruby21/lib/ruby/gems/2.1.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 116, C:/Ruby21/lib/ruby/gems/2.1.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block;
+}
+
+/*********************************************************************
+*** GLOBAL ***********************************************************
+*********************************************************************/
+/* LISTS */
+/* line 52, ../compass/sass/style.scss */
+#main-section ul li,
+#main-section ol li {
+  margin: 6px 0px;
+}
+
+/* INPUT TEXT/PWD */
+/* line 58, ../compass/sass/style.scss */
+input[type="text"],
+input[type="password"] {
+  color: #5c5c5c;
+}
+
+/* RADIO BUTTONS */
+/* line 64, ../compass/sass/style.scss */
+.radio-group input[type="radio"] {
+  display: block;
+  margin: 8px 0px 0px;
+}
+
+/* FILE UPLOAD INPUT */
+/* SELECT */
+/* line 74, ../compass/sass/style.scss */
+.select.has-select-all option:first-child {
+  margin-bottom: 0.5em;
+  padding-bottom: 0.5em;
+  border-bottom: 1px dashed rgba(0, 0, 0, 0.25);
+  font-style: italic;
+}
+
+/* BUTTON */
+/* line 82, ../compass/sass/style.scss */
+.btn {
+  background: transparent none;
+}
+/* line 85, ../compass/sass/style.scss */
+.btn.btn-default, .btn.btn-submit {
+  border: 1px solid #5b5b5d;
+  color: #5b5b5d;
+}
+/* line 89, ../compass/sass/style.scss */
+.btn.btn-default:hover, .btn.btn-submit:hover {
+  background: #5b5b5d;
+  color: #ffffff;
+}
+/* line 95, ../compass/sass/style.scss */
+.btn .btn.btn-reset,
+.btn .btn.btn-cancel {
+  border: 1px solid #888888;
+  color: #888888;
+}
+/* line 99, ../compass/sass/style.scss */
+.btn .btn.btn-reset:hover,
+.btn .btn.btn-cancel:hover {
+  background: #888888;
+  color: #ffffff;
+}
+/* line 105, ../compass/sass/style.scss */
+.btn .btn.btn-search {
+  border: 1px solid #cccccc;
+}
+/* line 107, ../compass/sass/style.scss */
+.btn .btn.btn-search:hover {
+  background: #cccccc;
+  color: #ffffff;
+}
+/* line 114, ../compass/sass/style.scss */
+.btn.btn-edit, .btn.btn-delete, .btn.btn-add, .btn.btn-ok, .btn.btn-reject, .btn.btn-return {
+  padding: 0px;
+}
+/* line 121, ../compass/sass/style.scss */
+.btn.btn-edit.active, .btn.btn-edit:active, .btn.btn-delete.active, .btn.btn-delete:active, .btn.btn-add.active, .btn.btn-add:active, .btn.btn-ok.active, .btn.btn-ok:active, .btn.btn-reject.active, .btn.btn-reject:active, .btn.btn-return.active, .btn.btn-return:active {
+  box-shadow: none;
+}
+/* line 126, ../compass/sass/style.scss */
+.btn.btn-add, .btn.btn-ok {
+  color: #3c763d;
+}
+/* line 130, ../compass/sass/style.scss */
+.btn.btn-delete, .btn.btn-reject {
+  color: #a94442;
+}
+/* line 134, ../compass/sass/style.scss */
+.btn.btn-edit, .btn.btn-return {
+  color: #8a6d3b;
+}
+
+/* Container for action buttons in the table */
+/* line 141, ../compass/sass/style.scss */
+.row-actions {
+  text-align: center;
+}
+/* line 143, ../compass/sass/style.scss */
+.row-actions.form-group {
+  margin-top: 0.5em;
+}
+/* line 146, ../compass/sass/style.scss */
+.row-actions .btn {
+  margin-left: 1.5em;
+}
+
+/* TABLES */
+/* line 152, ../compass/sass/style.scss */
+.pcfc-table {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+/* line 156, ../compass/sass/style.scss */
+.pcfc-table-tr {
+  border-bottom: 1px solid #e1e1e1;
+}
+/* line 158, ../compass/sass/style.scss */
+.pcfc-table-tr:last-child {
+  margin-bottom: 2em;
+}
+/* line 161, ../compass/sass/style.scss */
+.panel-body.pcfc-table .pcfc-table-tr:last-child {
+  margin-bottom: 0em;
+  border-bottom: none;
+}
+
+/* line 166, ../compass/sass/style.scss */
+.pcfc-table-td,
+.pcfc-table-hd {
+  line-height: 1.5em;
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+/* line 172, ../compass/sass/style.scss */
+.pcfc-table-hd {
+  font-weight: bold;
+}
+
+/* line 175, ../compass/sass/style.scss */
+.pcfc-table-td.row-no,
+.pcfc-table-hd.row-no,
+.pcfc-table-td .row-no,
+.pcfc-table-hd .row-no {
+  padding-left: 0px;
+  padding-right: 0px;
+  text-align: center;
+}
+
+/* line 183, ../compass/sass/style.scss */
+.pcfc-table-tr-clickable {
+  /* collapsible row trigger */
+  cursor: pointer;
+}
+
+/* line 186, ../compass/sass/style.scss */
+.pcfc-table-tr-fullinfo {
+  /* collapsible row data */
+  background: #d9edf7 none;
+}
+
+/* LABEL */
+/* line 191, ../compass/sass/style.scss */
+.pcfc-label {
+  font-weight: bold;
+}
+
+/*** BOOTSTRAP ******************************************************/
+/* PANEL */
+/* line 197, ../compass/sass/style.scss */
+.panel-group .panel {
+  border: 1px solid #e1e1e1;
+}
+/* line 200, ../compass/sass/style.scss */
+.panel-group .panel + .panel {
+  margin-top: 1.5em;
+}
+/* line 203, ../compass/sass/style.scss */
+.panel-group .panel .panel-head {
+  padding: 1em;
+  border-bottom: 1px solid #e1e1e1;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  background: #f1f1f1;
+  font-size: 1.25em;
+  font-weight: bold;
+  color: #fba116;
+}
+/* line 213, ../compass/sass/style.scss */
+.panel-group .panel .panel-footer {
+  border-top: 1px solid #e1e1e1;
+}
+/* line 216, ../compass/sass/style.scss */
+.panel-group .panel .panel-footer .pagination {
+  margin: 0.5em 0em;
+}
+
+/* FORM */
+@media screen and (max-width: 992px) {
+  /* line 223, ../compass/sass/style.scss */
+  .form-horizontal .control-label[class*="col-sm-12"] {
+    text-align: left;
+  }
+}
+/* line 227, ../compass/sass/style.scss */
+.form-buttons {
+  text-align: right;
+}
+
+/* line 230, ../compass/sass/style.scss */
+.form-buttons a + a,
+.form-buttons a + input,
+.form-buttons input + a,
+.form-buttons input + input {
+  margin-left: 1em;
+}
+
+/* FORM VALIDATION */
+/* line 238, ../compass/sass/style.scss */
+.validation-errors-container {
+  font-weight: bold;
+}
+
+/* line 241, ../compass/sass/style.scss */
+.form-group.has-error .switch .btn {
+  border-top: 1px solid #a94442;
+  border-bottom: 1px solid #a94442;
+}
+
+/* line 245, ../compass/sass/style.scss */
+.form-group.has-error .switch .btn:first-child {
+  border-left: 1px solid #a94442;
+}
+
+/* line 248, ../compass/sass/style.scss */
+.form-group.has-error .switch .btn:last-child {
+  border-right: 1px solid #a94442;
+}
+
+/* FORM REQUIRED FIELD */
+/* line 253, ../compass/sass/style.scss */
+.form-group.required .control-label::after {
+  content: "*";
+  color: #a94442;
+}
+
+/* GLYPHS */
+/* line 259, ../compass/sass/style.scss */
+.glyphicon-plus {
+  color: #3c763d;
+}
+
+/* line 262, ../compass/sass/style.scss */
+.glyphicon-pencil {
+  color: #8a6d3b;
+}
+
+/* line 265, ../compass/sass/style.scss */
+.glyphicon-remove {
+  color: #a94442;
+}
+
+/*** COMPONENTS *****************************************************/
+/* MODAL */
+/* line 271, ../compass/sass/style.scss */
+.modal.in .modal-dialog {
+  transform: translate(0px, 2em);
+}
+
+/* line 274, ../compass/sass/style.scss */
+.modal-msg-type-default .modal-body,
+.modal-msg-type-success .modal-body,
+.modal-msg-type-warning .modal-body,
+.modal-msg-type-error .modal-body {
+  margin-bottom: 0px;
+}
+
+/* CALENDAR */
+/* line 282, ../compass/sass/style.scss */
+.is-datepicker {
+  cursor: pointer;
+}
+
+/* MOVE OPTIONS FROM SELECT TO SELECT */
+/* line 287, ../compass/sass/style.scss */
+.ddl-available-assigned-container .ddl-available-container,
+.ddl-available-assigned-container .ddl-assigned-container {
+  display: table-cell;
+  width: 34%;
+}
+
+/* line 292, ../compass/sass/style.scss */
+.ddl-available-assigned-container .ddl-available-assigned-controls {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+}
+/* line 296, ../compass/sass/style.scss */
+.ddl-available-assigned-container .ddl-available-assigned-controls.move-h {
+  width: 10%;
+}
+/* line 299, ../compass/sass/style.scss */
+.ddl-available-assigned-container .ddl-available-assigned-controls.move-v {
+  width: 1%;
+}
+/* line 302, ../compass/sass/style.scss */
+.ddl-available-assigned-container .ddl-available-assigned-controls .btn {
+  width: 100%;
+}
+
+/* PAGINATION */
+/* line 308, ../compass/sass/style.scss */
+.pagination-container {
+  display: table;
+  padding: 0.5em 0em;
+}
+/* line 311, ../compass/sass/style.scss */
+.pagination-container .pagination {
+  display: table-cell;
+}
+/* line 314, ../compass/sass/style.scss */
+.pagination-container .items-per-page {
+  display: table-cell;
+}
+/* line 317, ../compass/sass/style.scss */
+.pagination-container .items-per-page button {
+  background-color: #ffffff;
+}
+/* line 320, ../compass/sass/style.scss */
+.pagination-container .pagination + .items-per-page {
+  border-left: 1em solid transparent;
+  border-right: 1em solid transparent;
+}
+
+/* SEARCH */
+/*********************************************************************
+*** LAYOUT ***********************************************************
+*********************************************************************/
+/* line 333, ../compass/sass/style.scss */
+body {
+  margin: 0px;
+  padding: 0px;
+  background: #f1f1f1 none;
+  font: 14px Arial, Helvetica, sans-serif;
+}
+
+/*** HEADER *********************************************************/
+/* line 342, ../compass/sass/style.scss */
+.navbar {
+  height: 3em;
+  background-color: #c62926;
+}
+
+/* WEBSITE /LOGONAME */
+/* line 348, ../compass/sass/style.scss */
+.navbar-header {
+  padding: 6px 0px;
+  margin-left: 1em;
+}
+
+/* line 352, ../compass/sass/style.scss */
+.navbar-brand {
+  width: 36px;
+  height: 36px;
+  background: transparent url("../img/logo_dt_white.png") no-repeat;
+}
+
+/* MENU */
+@media only screen and (min-width: 768px) {
+  /* line 362, ../compass/sass/style.scss */
+  .navbar .nav li:first-child {
+    margin-left: 0.6em;
+  }
+}
+/* line 369, ../compass/sass/style.scss */
+.navbar .nav li .dropdown-toggle, .navbar .nav li .dropdown-toggle:focus, .navbar .nav li .dropdown-toggle:hover {
+  text-decoration: none;
+  color: #ffffff;
+}
+/* line 377, ../compass/sass/style.scss */
+.navbar .nav li .dropdown-menu a {
+  color: #c62926;
+}
+@media only screen and (max-width: 768px) {
+  /* line 377, ../compass/sass/style.scss */
+  .navbar .nav li .dropdown-menu a {
+    color: #ffffff;
+  }
+}
+/* line 385, ../compass/sass/style.scss */
+.navbar .nav li a {
+  color: #ffffff;
+}
+/* line 388, ../compass/sass/style.scss */
+.navbar .nav li a:focus, .navbar .nav li a:hover {
+  background: inherit;
+  text-decoration: underline;
+}
+
+/* line 397, ../compass/sass/style.scss */
+.navbar-collapse {
+  background-color: #c62926;
+}
+
+/* line 402, ../compass/sass/style.scss */
+.navbar-toggle {
+  margin: 2px 15px;
+  border: 1px solid #ffffff;
+}
+/* line 407, ../compass/sass/style.scss */
+.navbar-toggle .icon-bar {
+  background-color: #ffffff;
+}
+
+/*** CONTENT ********************************************************/
+/* line 413, ../compass/sass/style.scss */
+#main-section .main-container {
+  min-height: 400px;
+  margin: 3em 1em;
+  padding: 3em 2em 8em;
+  border: 1px solid #d1d1d1;
+  background: #ffffff none;
+}
+@media only screen and (max-width: 768px) {
+  /* line 413, ../compass/sass/style.scss */
+  #main-section .main-container {
+    margin: 3em 0em;
+  }
+}
+
+/* ALERTS */
+/* line 425, ../compass/sass/style.scss */
+.alerts-container .alert:last-child {
+  margin-bottom: 3em;
+}
+
+/*** FOOTER *********************************************************/
+/* line 430, ../compass/sass/style.scss */
+.footer {
+  position: fixed;
+  left: 0px;
+  bottom: 0px;
+  width: 100%;
+  padding: 2em;
+  background: #373a3d none;
+  font-size: 0.85em;
+  color: #ffffff;
+  text-align: center;
+}
+
+/* line 441, ../compass/sass/style.scss */
+.footer a,
+.footer a:focus,
+.footer a:hover {
+  color: #ffffff;
+}
+
+/* line 447, ../compass/sass/style.scss */
+.footer .footer-copyright {
+  margin-top: 1em;
+}
+
+/*********************************************************************
+*** SAMPLE ELEMENTS PAGE *********************************************
+*********************************************************************/
+/* line 455, ../compass/sass/style.scss */
+.guidelines-elements-container h2 {
+  margin-bottom: 40px;
+}

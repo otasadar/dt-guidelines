@@ -1,11 +1,17 @@
-@charset "UTF-8";
+@charset 'UTF-8';
+
+@import 'compass/reset';
+@import 'compass/css3';
 
 // Base
-$baseColorOrange: 				#fba116;
-$baseColorMaroon: 				#c62926;
+$baseColorOrange: 			#fba116;
+$baseColorMaroon: 			#c62926;
+$baseColorDarkGray:			#373a3d;
+$baseColorLightGray:		#f1f1f1;
 
 // Font
 $fontColor:							#000000;
+$fontColorWhite:				#ffffff;
 $fontSize: 							14px;
 $fontFamily:						Arial, Helvetica, sans-serif;
 
@@ -17,7 +23,7 @@ $linkColorHover:				#fdb02d;
 $fieldTextColor:				#5c5c5c;
 $fieldBorderColor:			#e1e1e1;
 $fieldBorderRadius:			4px;
-$fieldPlaceholderColor: 	#cccccc;
+$fieldPlaceholderColor: #cccccc;
 $fieldBGColor:					#f1f1f1;
 
 // Button
@@ -25,6 +31,9 @@ $btnSubmitColor:				#5b5b5d;
 $btnResetColor:					#888888;
 $btnSearchColor:				#cccccc;
 $btnHoverColor:					#ffffff;
+$btnColorWhite:					#ffffff;
+$btnBGColorWhite:				#ffffff;
+$btnBorderColor:				#ffffff;
 
 // Messages
 $infoBG:								#d9edf7;
@@ -65,40 +74,71 @@ input[type="file"] {
 .select.has-select-all option:first-child {
 	margin-bottom: 0.5em;
 	padding-bottom: 0.5em;
-	border-bottom: 1px dashed rgba($baseTextColor, 0.25);
+	border-bottom: 1px dashed rgba($fontColor, 0.25);
 	font-style: italic;
 }
 
 /* BUTTON */
 .btn {
 	background: transparent none;
-}
-.btn.btn-default,
-.btn.btn-submit {
-	border: 1px solid $btnSubmitColor;
-	color: $btnSubmitColor;
-	&:hover {
-		background: $btnSubmitColor;
-		color: $btnHoverColor;
+	
+	&.btn-default,
+	&.btn-submit {
+		border: 1px solid $btnSubmitColor;
+		color: $btnSubmitColor;
+		&:hover {
+			background: $btnSubmitColor;
+			color: $btnHoverColor;
+		}
+	}
+	
+	.btn.btn-reset,
+	.btn.btn-cancel {
+		border: 1px solid $btnResetColor;
+		color: $btnResetColor;
+		&:hover {
+			background: $btnResetColor;
+			color: $btnHoverColor;
+		}
+	}
+	
+	.btn.btn-search {
+		border: 1px solid $btnSearchColor;
+		&:hover {
+			background: $btnSearchColor;
+			color: $btnHoverColor;
+		}
+	}
+	
+	// Icons
+	&.btn-edit,
+	&.btn-delete,
+	&.btn-add,
+	&.btn-ok,
+	&.btn-reject,
+	&.btn-return {
+		padding: 0px;
+		&.active,
+		&:active {
+			box-shadow: none;
+		}
+	}
+	&.btn-add,
+	&.btn-ok {
+		color: $successColor;
+	}
+	&.btn-delete,
+	&.btn-reject {
+		color: $errorColor;
+	}
+	&.btn-edit,
+	&.btn-return {
+		color: $warningColor;
 	}
 }
-.btn.btn-reset,
-.btn.btn-cancel {
-	border: 1px solid $btnResetColor;
-	color: $btnResetColor;
-	&:hover {
-		background: $btnResetColor;
-		color: $btnHoverColor;
-	}
-}
-.btn.btn-search {
-	border: 1px solid $btnSearchColor;
-	&:hover {
-		background: $btnSearchColor;
-		color: $btnHoverColor;
-	}
-}
-.row-actions { /* action buttons */
+
+/* Container for action buttons in the table */
+.row-actions {
 	text-align: center;
 	&.form-group {
 		margin-top: 0.5em; // form-gourp have elements like input, so line height is larger and additional margin req. to valign
@@ -106,32 +146,6 @@ input[type="file"] {
 	& .btn {
 		margin-left: 1.5em;
 	}
-}
-
-/* ICONS */
-.btn.btn-edit,
-.btn.btn-delete,
-.btn.btn-add,
-.btn.btn-ok,
-.btn.btn-reject,
-.btn.btn-return {
-	padding: 0px;
-	&.active,
-	&:active {
-		box-shadow: none;
-	}
-}
-.btn.btn-add,
-.btn.btn-ok {
-	color: $successColor;
-}
-.btn.btn-delete,
-.btn.btn-reject {
-	color: $errorColor;
-}
-.btn.btn-edit,
-.btn.btn-return {
-	color: $warningColor;
 }
 
 /* TABLES */
@@ -149,7 +163,6 @@ input[type="file"] {
 		border-bottom: none;
 	}
 }
-
 .pcfc-table-td,
 .pcfc-table-hd {
 	line-height: 1.5em;
@@ -159,7 +172,6 @@ input[type="file"] {
 .pcfc-table-hd {
 	font-weight: bold;
 }
-
 .pcfc-table-td.row-no,
 .pcfc-table-hd.row-no,
 .pcfc-table-td .row-no,
@@ -168,7 +180,6 @@ input[type="file"] {
 	padding-right: 0px;
 	text-align: center;
 }
-
 .pcfc-table-tr-clickable { /* collapsible row trigger */
 	cursor: pointer;
 }
@@ -194,10 +205,10 @@ input[type="file"] {
 		border-bottom: 1px solid $fieldBorderColor;
 		border-top-left-radius: $fieldBorderRadius;
 		border-top-right-radius: $fieldBorderRadius;
-		background: $fieldBackgroundColor;
+		background: $fieldBGColor;
 		font-size: 1.25em;
 		font-weight: bold;
-		color: $baseColorBlueLighter;
+		color: $baseColorOrange;
 	}
 	& .panel-footer {
 		border-top: 1px solid $fieldBorderColor;
@@ -282,14 +293,12 @@ input[type="file"] {
 	display: table-cell;
 	text-align: center;
 	vertical-align: middle;
-	
 	&.move-h {
 		width: 10%;
 	}
 	&.move-v {
 		width: 1%;
 	}
-	
 	& .btn {
 		width: 100%;
 	}
@@ -306,7 +315,7 @@ input[type="file"] {
 		display: table-cell;
 	}
 	& .items-per-page button {
-		background-color: #ffffff;
+		background-color: $btnBGColorWhite;
 	}
 	& .pagination + .items-per-page {
 		border-left: 1em solid transparent;
@@ -322,56 +331,82 @@ input[type="file"] {
 *** LAYOUT ***********************************************************
 *********************************************************************/
 body {
-	min-width: 600px;
+	//min-width: 600px;
 	margin: 0px;
 	padding: 0px;
-	background: #e6e6e6 none;
+	background: $baseColorLightGray none;
 	font: 14px Arial, Helvetica, sans-serif;
 }
 
 /*** HEADER *********************************************************/
 .navbar {
-	/*height: 3em;*/
-	background: $baseColorBlue none;
+	height: 3em;
+	background-color: $baseColorMaroon;
 }
 
-/* WEBSITE NAME */
-.navbar-brand,
-.navbar-brand:focus,
-.navbar-brand:hover {
-	color: #ffffff;
+/* WEBSITE /LOGONAME */
+.navbar-header {
+	padding: 6px 0px;
+	margin-left: 1em;
+}
+.navbar-brand {
+	width: 36px;
+	height: 36px;
+	background: transparent url('../img/logo_dt_white.png') no-repeat;
 }
 
 /* MENU */
-.navbar .nav li a {
-	color: #ffffff; 
-}
-.navbar .nav li a:focus,
-.navbar .nav li a:hover {
-	background: inherit;
-	text-decoration: underline;
-}
+.navbar .nav li {
 
-.navbar .nav li .dropdown-toggle,
-.navbar .nav li .dropdown-toggle:focus,
-.navbar .nav li .dropdown-toggle:hover { /* top level menu items with dropdown */
-	text-decoration: none;
-	background-color: $baseColorBlue; 
-	color: #ffffff;
-}
-
-.navbar .nav li .dropdown-menu a { /* sublevel menu items */
-	color: $baseColorBlue;
-	@media only screen and (max-width : 768px) {
-		color: #ffffff;
+	// Left margin
+	&:first-child {
+		@media only screen and (min-width : 768px) {
+			margin-left: 0.6em;
+		}
+	}
+	
+	// Top level menu items with dropdown
+	& .dropdown-toggle,
+	& .dropdown-toggle:focus,
+	& .dropdown-toggle:hover { 
+		text-decoration: none;
+		color: $fontColorWhite;
+	}
+	
+	// Sublevel menu items
+	& .dropdown-menu a {
+		color: $baseColorMaroon;
+		@media only screen and (max-width : 768px) {
+			color: $fontColorWhite;
+		}
+	}
+	
+	// Meu links
+	& a {
+		color: $fontColorWhite; 
+		
+		&:focus,
+		&:hover {
+			background: inherit;
+			text-decoration: underline;
+		}
 	}
 }
 
-.navbar-toggle { /* collapsed menu */
-	border: 1px solid #ffffff;
+// Mobile menu
+.navbar-collapse {
+	background-color: $baseColorMaroon;
 }
-.navbar-toggle .icon-bar {
-	background-color: #ffffff;
+
+// Mobile menu icon
+.navbar-toggle { 
+  margin: 2px 15px;
+	border: 1px solid $btnColorWhite;
+	
+	// 3 bars inside
+	& .icon-bar {
+		background-color: $btnBGColorWhite;
+	}
 }
 
 /*** CONTENT ********************************************************/
@@ -398,133 +433,30 @@ body {
 	bottom: 0px;
 	width: 100%;
 	padding: 2em;
-	background: $baseColorBlue none;
+	background: $baseColorDarkGray none;
 	font-size: 0.85em;
-	color: #ffffff;
+	color: $fontColorWhite;
+	text-align: center;
 }
 .footer a,
 .footer a:focus,
 .footer a:hover {
-	color: #ffffff;
+	color: $fontColorWhite;
 }
 
-.footer-left {
-	text-align: left;
-}
-.footer-right {
-	text-align: right;
-}
-.footer-center {
-	text-align: center;
-}
-
-/*********************************************************************
-*** LOGIN PAGE *******************************************************
-*********************************************************************/
-#main-section .login-container .form-buttons a {
-	color: $linkForgotPassword;
-	text-decoration: underline;
-}
-
-/*********************************************************************
-*** ROLES TO SERVICES PAGE *******************************************
-*********************************************************************/
-.roles-to-services-container .services-controls .btn.btn-add {
-	padding: 0;
-	font-weight: bold;
-}
-
-/*********************************************************************
-*** WORKFLOWS (LIST) PAGE ********************************************
-*********************************************************************/
-.approval-workflows-container .btn-add {
-	float: right;
-	padding: 0px;
-}
-.approval-workflows-container .inner-row {
-	margin-bottom: 1em;
-}
-.approval-workflows-container .panel-group .panel .panel-footer {
-	border-top: none;
-}
-
-/*********************************************************************
-*** WORKFLOWS (SINGLE) PAGE ******************************************
-*********************************************************************/
-.approval-workflows-form-container .select[multiple=multiple] {
-	height: 200px;
-}
-
-/*********************************************************************
-*** PCFC USERS (LIST) PAGE *******************************************
-*********************************************************************/
-.manage-internal-users-container .btn-add {
-	float: right;
-	padding: 0px;
-}
-
-/*********************************************************************
-*** PCFC USERS (FORM) PAGE *******************************************
-*********************************************************************/
-.manage-internal-users-form-container #generate-password-value {
-	text-align: left;
-	font-weight: bold;
-	color: $successColor;
-}
-
-
-/*********************************************************************
-*** APPROVE PASSES (INTERNAL) PAGE ***********************************
-*********************************************************************/
-.passes-list-internal-container .inner-row::after {
-	content: ' ';
-	display: table;
-	clear: both;
-}
-.passes-list-internal-container .inner-row.inner-row-last > div {
-	margin-bottom: 1.5em;
-}
-
-.passes-list-internal-container .visitor-photo {
-	width: 80px;
-	height: 120px;
-	margin: 0 auto;
-	border: 1px solid $fieldBorderColor;
-	background: #ffffff;
-}
-
-.pass-status {
-	font-weight: bold;
-}
-.pass-status-inner {
+.footer .footer-copyright {
 	margin-top: 1em;
-	font-weight: bold;
-	text-align: center;
-}
-.pass-status-pending {
-	color: $infoColor;
-}
-.pass-status-rejected {
-	color: $errorColor;
-}
-.pass-status-returned {
-	color: $warningColor;
-}
-.pass-status-ready-for-printing {
-	color: $successColor;
 }
 
-.passes-list-internal-container .panel-group .panel .panel-footer {
-	border-top: none;
-}
 
 /*********************************************************************
-*** APPLY FOR PASS PAGE **********************************************
+*** SAMPLE ELEMENTS PAGE *********************************************
 *********************************************************************/
-#main-section .apply-container .payment-total {
-	float: right;
-	color: $successColor;
+.guidelines-elements-container h2 {
+	margin-bottom: 40px;
 }
+
+
 
 
 
