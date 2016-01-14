@@ -1,18 +1,15 @@
 (function($) {
 	
 	$(document).ready(function() {
-		/*************************************************************************************
-		*** GENERAL **************************************************************************
-		*************************************************************************************/
 		
 		/*** Init jQuery datepicker *********************************************************/
 		$('.is-datepicker').datepicker({
-			changeMonth: 		true,
-			changeYear: 		true,
-			showOtherMonths: 	true,
+			changeMonth: 				true,
+			changeYear: 				true,
+			showOtherMonths: 		true,
 			selectOtherMonths: 	true,
-			showButtonPanel: 	true,
-			dateFormat:			'dd/mm/yy'
+			showButtonPanel: 		true,
+			dateFormat:					'dd/mm/yy'
 		});
 		
 		/*** Custom Switch functionality ****************************************************/
@@ -22,8 +19,8 @@
 		});
 		
 		/*** Multiselect: custom 'select all' feature ***************************************/
-		$('.select option[value="select-all"]').on('click', function() {
-			var select = $(this).closest('.select');
+		$('select option[value="select-all"]').on('click', function() {
+			var select = $(this).closest('select');
 			$('option', select).prop('selected', true);
 			$(this).prop('selected', false);
 			select.scrollTop(0);
@@ -362,10 +359,6 @@
 				moreinfo.addClass('hidden');
 			}
 		});
-
-		/*************************************************************************************
-		*** TEMP *****************************************************************************
-		*************************************************************************************/
 	});
 	
 })(jQuery);

@@ -1,0 +1,585 @@
+@charset 'UTF-8';
+
+@import 'compass/reset';
+@import 'compass/css3';
+
+// Base
+$baseColorOrange: 			#fba116;
+$baseColorMaroon: 			#c62926;
+$baseColorDarkGray:			#373a3d;
+$baseColorLightGray:		#f1f1f1;
+
+// Font
+$fontColor:							#000000;
+$fontColorWhite:				#ffffff;
+$fontSize: 							14px;
+$fontFamily:						Arial, Helvetica, sans-serif;
+
+// Links
+$linkColor:							#b82329;
+$linkColorHover:				#fdb02d;
+
+// Field
+$fieldTextColor:				#5c5c5c;
+$fieldBorderColor:			#e1e1e1;
+$fieldBorderRadius:			4px;
+$fieldPlaceholderColor: #cccccc;
+$fieldBGColor:					#f1f1f1;
+
+// Button
+$btnSubmitColor:				#5b5b5d;
+$btnResetColor:					#888888;
+$btnSearchColor:				#cccccc;
+$btnHoverColor:					#ffffff;
+$btnColorWhite:					#ffffff;
+$btnBGColorWhite:				#ffffff;
+$btnBorderColor:				#ffffff;
+
+// Messages
+$infoBG:								#d9edf7;
+$infoColor:							#31708f;
+$warningBG:							#fcf8e3;
+$warningColor:					#8a6d3b;
+$errorColor:						#a94442;
+$successBG:							#dff0d8;
+$successColor:					#3c763d;
+
+
+/*********************************************************************
+*** GLOBAL ***********************************************************
+*********************************************************************/
+@mixin bp-sm {
+  @media only screen and (max-width: 768px) {
+    @content;
+  }
+}
+@mixin bp-not-sm {
+  @media only screen and (min-width: 768px) {
+    @content;
+  }
+}
+@mixin bp-md {
+  @media only screen and (max-width: 992px) {
+    @content;
+  }
+}
+@mixin field-style {
+	color: $fieldTextColor;
+	&:focus {
+		border: 1px solid lighten($baseColorOrange, 5%);
+		@include box-shadow(1px 1px 3px lighten($baseColorOrange, 25%));
+	}
+}
+@mixin button-styles($color, $borderColor, $hoverColor, $hoverBGColor) {
+	border: 1px solid $borderColor;
+	color: $color;
+	&:hover {
+		background: $hoverBGColor;
+		color: $hoverColor;
+	}
+}
+
+/* HEADERS */
+#{headings()} {
+  font-weight: 700;
+	color: lighten($baseColorDarkGray, 15%);
+}
+h1 { font-size: 2em; }
+h2 { font-size: 1.75em; }
+h3 { font-size: 1.5em; }
+h3 { font-size: 1.25em; }
+
+/* LIST */
+#main-section ul li, 
+#main-section ol li {
+	margin: 6px 0px;
+}
+
+/* INPUTS */
+input[type="text"],
+input[type="password"],
+textarea {
+	@include field-style;
+}
+
+/* RADIO BUTTON */
+.radio-group {
+	& label {
+		cursor: pointer;
+	}
+	& input[type="radio"] {
+		margin-right: 0.5em;
+	}
+}
+
+/* CHECKBOX */
+.checkbox-group {
+	& label {
+		cursor: pointer;
+	}
+	& input[type="checkbox"] {
+		margin-right: 0.5em;
+	}
+}
+
+/* SELECT */
+select {
+	&[multiple="multiple"] {
+		height: calc(8em + 2px);
+	}
+	&.has-select-all option:first-child {
+		margin-bottom: 0.5em;
+		padding-bottom: 0.5em;
+		border-bottom: 1px dashed darken($fieldBorderColor, 15%);
+		font-style: italic;
+	}
+	& option {
+		outline: 0px;
+	}
+}
+
+/* BUTTON */
+.btn {
+	background: transparent none;
+	
+	// Buttons
+	&.btn-default,
+	&.btn-submit {
+		@include button-styles($btnSubmitColor, $btnSubmitColor, $btnHoverColor, $btnSubmitColor);
+	}
+	&.btn-reset,
+	&.btn-cancel {
+		@include button-styles($btnResetColor, $btnResetColor, $btnHoverColor, $btnResetColor);
+	}
+	&.btn-search {
+		@include button-styles($btnSearchColor, $btnSearchColor, $btnHoverColor, $btnSearchColor);
+	}
+	
+	// Icons
+	&.btn-default {
+		padding: 0px;
+		&.active {
+			box-shadow: none;
+		}
+	}
+	&.btn-add,
+	&.btn-ok {
+		@extend .btn-default;
+		color: $successColor;
+	}
+	&.btn-delete,
+	&.btn-reject {
+		@extend .btn-default;
+		color: $errorColor;
+	}
+	&.btn-edit,
+	&.btn-return {
+		@extend .btn-default;
+		color: $warningColor;
+	}
+}
+
+/* CUSTOM TABLE */
+.dt-table {
+	padding-top: 0;
+	padding-bottom: 0;
+	
+	// TR
+	& .dt-table-tr {
+		border-bottom: 1px solid $fieldBorderColor;
+		
+		// TD
+		& .dt-table-td {
+			line-height: 1.5em;
+			padding-top: 1em;
+			padding-bottom: 1em;
+		}
+		
+		// TH
+		& .dt-table-th {
+			@extend .dt-table-td;
+			font-weight: bold;
+		}
+		
+		// Collapsible row (shown on click)
+		&.dt-table-tr-clickable { // trigger
+			cursor: pointer;
+		}
+		&.dt-table-tr-fullinfo { // hidden data
+			background: $infoBG none;
+		}
+		
+		// Table action icons container
+		&.row-actions {
+			text-align: center;
+			&.form-group {
+				margin-top: 0.5em; // form-gourp have elements like input, so line height is larger and additional margin req. to valign
+			}
+			& .btn {
+				margin-left: 1.5em;
+			}
+		}
+	}
+	
+	// Remove last border, when table takes the whole panel
+	&.panel-body .dt-table-tr:last-child { 
+		border-bottom: none;
+	}
+}
+
+/* LABEL */
+.dt-label {
+	font-weight: bold;
+}
+
+
+/*********************************************************************
+*** BOOTSTRAP ********************************************************
+*********************************************************************/
+/* PANEL */
+.panel {
+	border: 1px solid $fieldBorderColor;
+	
+	& + .panel {
+		margin-top: 1.5em;
+	}
+	& .panel-head {
+		padding: 1em;
+		border-bottom: 1px solid $fieldBorderColor;
+		border-top-left-radius: $fieldBorderRadius;
+		border-top-right-radius: $fieldBorderRadius;
+		background: $fieldBGColor;
+		font-size: 1.25em;
+		font-weight: bold;
+		color: darken($baseColorMaroon, 5%);
+	}
+	& .panel-body {
+		padding: 2em;
+	}
+	& .panel-footer {
+		border-top: 1px solid $fieldBorderColor;
+		& .pagination {
+			margin: 0.5em 0em;
+		}
+	}
+}
+
+/* FORM */
+.form,
+.form-horizontal {
+
+	// Row
+	& .row {
+		&:last-child .form-group {
+			margin-bottom: 0px;
+		}
+		
+		// Form group
+		& .form-group {
+			// Label
+			& .control-label {
+				font-weight: 700;
+				@include bp-sm {
+					&[class*="col-sm-12"] {
+						text-align: left;
+					}
+				}
+			}
+			// Control
+			& .form-control {
+				@include field-style;
+			}
+			// Required feild
+			&.required {
+				& .control-label::after {
+					content: "*";
+					color: $errorColor;
+				}
+			}
+			// Field error msg container
+			&.has-error {
+				& .control-label {
+					color: $errorColor;
+				}
+				& input[type="text"],
+				& input[type="password"],
+				& textarea {
+					border: 1px solid $errorColor;
+				}
+				& .switch .btn {
+					border-top: 1px solid $errorColor;
+					border-bottom: 1px solid $errorColor;
+					&:first-child {
+						border-left: 1px solid $errorColor;
+					}
+					&:last-child {
+						border-right: 1px solid $errorColor;
+					}
+				}
+			}
+		}
+	}
+		
+	// Form buttons
+	& .form-buttons {
+		text-align: right;
+	}
+	.form-buttons a + a,
+	.form-buttons a + input,
+	.form-buttons input + a,
+	.form-buttons input + input {
+		margin-left: 1em;
+	}
+}
+
+/* PAGE MSGs CONTAINER */
+.alerts-container {
+	& .validation-errors-container {
+		font-weight: 700;
+	}
+}
+
+/* GLYPHS */
+.glyphicon-plus {
+	color: $successColor;
+}
+.glyphicon-pencil {
+	color: $warningColor;
+}
+.glyphicon-remove {
+	color: $errorColor;
+}
+
+
+/*********************************************************************
+*** COMPONENTS *******************************************************
+*********************************************************************/
+/* MODAL */
+/*.modal.in .modal-dialog {
+	transform: translate(0px, 2em);
+}*/
+
+/* JQUERY CALENDAR */
+.is-datepicker {
+	cursor: pointer;
+}
+#ui-datepicker-div {
+	background: lighten($baseColorLightGray, 1%) none;
+	
+	// Header
+	& .ui-datepicker-header {
+		background: darken($baseColorLightGray, 1%) none;
+		border: 1px solid darken($baseColorLightGray, 5%);
+		& select.ui-datepicker-month, 
+		& select.ui-datepicker-year {
+			font-weight: 500;
+		}
+	}
+	
+	& .ui-datepicker-calendar {
+		// Weekdays
+		& th {
+			font-weight: 400;
+		}
+		// Calendar
+		& .ui-state-default, 
+		& .ui-widget-content 
+		& .ui-state-default, 
+		& .ui-widget-header 
+		& .ui-state-default {
+			border: 1px solid darken($baseColorLightGray, 10%);
+			color: $fieldTextColor;
+			font-weight: 500;
+		}
+		& .ui-state-hover, 
+		& .ui-widget-hover 
+		& .ui-state-hover, 
+		& .ui-widget-hover 
+		& .ui-state-hover {
+			background: $baseColorOrange none;
+			border: 1px solid darken($baseColorOrange, 10%);
+			color: #000000;
+		}
+	}
+	
+	// Buttons
+	& .ui-datepicker-buttonpane {
+		& .ui-datepicker-current,
+		& .ui-datepicker-close {
+			border: 1px solid darken($baseColorLightGray, 12%);
+			background: darken($baseColorLightGray, 5%) none;
+			color: $fieldTextColor;
+			font-weight: 400;
+			opacity: 1;
+		}
+	}
+}
+
+/* MOVE OPTIONS FROM SELECT TO SELECT */
+.ddl-available-assigned-container .ddl-available-container,
+.ddl-available-assigned-container .ddl-assigned-container {
+	display: table-cell;
+	width: 34%;
+}
+.ddl-available-assigned-container .ddl-available-assigned-controls {
+	display: table-cell;
+	text-align: center;
+	vertical-align: middle;
+	&.move-h {
+		width: 10%;
+	}
+	&.move-v {
+		width: 1%;
+	}
+	& .btn {
+		width: 100%;
+	}
+}
+
+/* PAGINATION */
+.pagination-container {
+	display: table;
+	padding: 0.5em 0em;
+	& .pagination {
+		display: table-cell;
+	}
+	& .items-per-page {
+		display: table-cell;
+		& button {
+			background-color: $btnBGColorWhite;
+		}
+	}
+	& .pagination + .items-per-page {
+		border-left: 1em solid transparent;
+		border-right: 1em solid transparent;
+	}
+}
+
+
+/*********************************************************************
+*** MAIN LAYOUT ******************************************************
+*********************************************************************/
+body {
+	margin: 0px;
+	padding: 0px;
+	background: $baseColorLightGray none;
+	font: 14px Arial, Helvetica, sans-serif;
+}
+
+/*** HEADER *********************************************************/
+.navbar {
+	height: 3em;
+	background-color: $baseColorMaroon;
+	
+	// Logo/Website name
+	& .navbar-header {
+		padding: 6px 0px;
+		margin-left: 1em;
+		& .navbar-brand {
+			width: 36px;
+			height: 36px;
+			background: transparent url('../img/logo_dt_white.png') no-repeat;
+		}
+	}
+	
+	// Header menu
+	& .navbar-nav {
+		// Menu margin from logo
+		& > li:first-child {
+			@include bp-not-sm {
+				margin-left: 0.6em;
+			}
+		}
+		// Menu links
+		& li a {
+			color: $fontColorWhite; 
+			&:focus,
+			&:hover {
+				background: inherit;
+				text-decoration: underline;
+			}
+		}
+		// Dropdown menu items
+		& li.dropdown {
+			// Dropdown link itself
+			& a.dropdown-toggle,
+			& a.dropdown-toggle:focus,
+			& a.dropdown-toggle:hover,
+			&.open a.dropdown-toggle {
+				text-decoration: none;
+				color: $fontColorWhite;
+				background-color: $baseColorMaroon;
+			}
+			// Dropdown sublinks
+			& .dropdown-menu li a {
+				color: $baseColorMaroon;
+				@include bp-sm {
+					color: $fontColorWhite;
+				}
+			}
+		}
+	}
+	
+	// Mobile header menu
+	& .navbar-collapse {
+		background-color: $baseColorMaroon;
+	}
+
+	// Mobile header menu icon
+	& .navbar-toggle { 
+		margin: 2px 15px;
+		border: 1px solid $btnColorWhite;
+		
+		// 3 bars inside
+		& .icon-bar {
+			background-color: $btnBGColorWhite;
+		}
+	}
+}
+
+/*** CONTENT ********************************************************/
+#main-section .main-container {
+	min-height: 400px;
+	margin: 3em 1em;
+	padding: 3em 2em 8em;
+	border: 1px solid #d1d1d1;
+	background: #ffffff none;
+	@media only screen and (max-width : 768px) {
+		margin: 3em 0em;
+	}
+}
+
+/* ALERTS */	
+.alerts-container .alert:last-child {
+	margin-bottom: 3em;
+}
+
+/*** FOOTER *********************************************************/
+.footer {
+	position: fixed;
+	left: 0px;
+	bottom: 0px;
+	width: 100%;
+	padding: 2em;
+	background: $baseColorDarkGray none;
+	font-size: 0.85em;
+	color: $fontColorWhite;
+	text-align: center;
+	
+	& a,
+	& a:focus,
+	& a:hover {
+		color: $fontColorWhite;
+	}
+	
+	& .footer-copyright {
+		margin-top: 1em;
+		& a {
+			text-decoration: underline;
+		}
+	}
+}
+
+
+
+
