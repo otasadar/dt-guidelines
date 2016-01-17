@@ -2,6 +2,7 @@
 
 @import 'compass/reset';
 @import 'compass/css3';
+@import 'compass/utilities/general/clearfix';
 
 // Base
 $baseColorOrange: 			#fba116;
@@ -48,27 +49,40 @@ $successColor:					#3c763d;
 /*********************************************************************
 *** GLOBAL ***********************************************************
 *********************************************************************/
-@mixin bp-sm {
+@mixin bp-xs {
   @media only screen and (max-width: 768px) {
     @content;
   }
 }
-@mixin bp-not-sm {
+@mixin bp-not-xs {
   @media only screen and (min-width: 768px) {
     @content;
   }
 }
-@mixin bp-md {
+@mixin bp-sm {
   @media only screen and (max-width: 992px) {
+    @content;
+  }
+}
+@mixin bp-md {
+  @media only screen and (max-width: 1200px) {
+    @content;
+  }
+}
+@mixin bp-lg {
+  @media only screen and (min-width: 1200px) {
     @content;
   }
 }
 @mixin field-style {
 	color: $fieldTextColor;
 	&:focus {
-		border: 1px solid lighten($baseColorOrange, 5%);
-		@include box-shadow(1px 1px 3px lighten($baseColorOrange, 25%));
+		@include field-style-focus;
 	}
+}
+@mixin field-style-focus {
+	border: 1px solid lighten($baseColorOrange, 5%);
+	@include box-shadow(1px 1px 3px lighten($baseColorOrange, 25%));
 }
 @mixin button-styles($color, $borderColor, $hoverColor, $hoverBGColor) {
 	border: 1px solid $borderColor;
@@ -186,6 +200,7 @@ select {
 	
 	// TR
 	& .dt-table-tr {
+		@include pie-clearfix;
 		border-bottom: 1px solid $fieldBorderColor;
 		
 		// TD
@@ -220,9 +235,15 @@ select {
 			}
 		}
 	}
+	&.dt-table-striped > .dt-table-body > .dt-table-tr:nth-of-type(2n) { // striped dt table
+		background-color: #f9f9f9;
+	}
+	&.dt-table-hover > .dt-table-body > .dt-table-tr:hover { // dt table with hover effect
+		background-color: rgba($baseColorOrange, 0.3);
+	}
 	
 	// Remove last border, when table takes the whole panel
-	&.panel-body .dt-table-tr:last-child { 
+	&.panel-body .dt-table-body .dt-table-tr:last-child { 
 		border-bottom: none;
 	}
 }
@@ -254,12 +275,30 @@ select {
 		color: darken($baseColorMaroon, 5%);
 	}
 	& .panel-body {
-		padding: 2em;
+		&.dt-table { // no padding if dt-table takes the whole panel
+			padding: 0;
+		}
 	}
 	& .panel-footer {
 		border-top: 1px solid $fieldBorderColor;
-		& .pagination {
-			margin: 0.5em 0em;
+		& .pagination-container {
+			& .pagination {
+				margin: 0.5em 0em;
+				& > li > a, 
+				& > li > span {
+					color: $baseColorMaroon;
+				}
+			}
+			& .btn-group {
+				& .btn-items-per-page {
+					border: 1px solid $fieldBorderColor;
+					color: $baseColorMaroon;
+				}
+				&.open .dropdown-toggle,
+				& .dropdown-toggle:active {
+					box-shadow: none;
+				}
+			}
 		}
 	}
 }
@@ -270,19 +309,19 @@ select {
 
 	// Row
 	& .row {
+	
 		&:last-child .form-group {
-			margin-bottom: 0px;
+			//margin-bottom: 0px;
 		}
 		
 		// Form group
 		& .form-group {
 			// Label
 			& .control-label {
+				padding: 0.5em 0 0.5em 15px;
 				font-weight: 700;
-				@include bp-sm {
-					&[class*="col-sm-12"] {
-						text-align: left;
-					}
+				&.text-align-left {
+					text-align: left;
 				}
 			}
 			// Control
@@ -329,6 +368,21 @@ select {
 	.form-buttons input + a,
 	.form-buttons input + input {
 		margin-left: 1em;
+	}
+}
+
+/* TABLE */
+.table {
+	&.table-hover {
+		& > tbody > tr:hover {
+			background-color: rgba($baseColorOrange, 0.3);
+		}
+	}
+	& > thead > tr {
+		background-color: $baseColorLightGray;
+		& > th {
+			font-weight: 700;
+		}
 	}
 }
 
@@ -415,11 +469,27 @@ select {
 	}
 }
 
-/* MOVE OPTIONS FROM SELECT TO SELECT */
+/* JQUERY ENHANCED SELECT */
+.chosen-container-single,
+.chosen-container-multi {
+	width: 100% !important;
+}
+.chosen-container-active .chosen-choices,
+.chosen-container-active .chosen-single {
+	@include field-style-focus;
+}
+
+/* ASSIGNABLE SELECT OPTIONS */
 .ddl-available-assigned-container .ddl-available-container,
 .ddl-available-assigned-container .ddl-assigned-container {
 	display: table-cell;
 	width: 34%;
+	&.form-group .control-label {
+		padding-left: 0;
+	}
+	& select[multiple="multiple"] {
+		height: calc(12em + 10px);
+	}
 }
 .ddl-available-assigned-container .ddl-available-assigned-controls {
 	display: table-cell;
@@ -486,7 +556,7 @@ body {
 	& .navbar-nav {
 		// Menu margin from logo
 		& > li:first-child {
-			@include bp-not-sm {
+			@include bp-not-xs {
 				margin-left: 0.6em;
 			}
 		}
@@ -513,7 +583,7 @@ body {
 			// Dropdown sublinks
 			& .dropdown-menu li a {
 				color: $baseColorMaroon;
-				@include bp-sm {
+				@include bp-xs {
 					color: $fontColorWhite;
 				}
 			}
