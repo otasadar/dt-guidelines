@@ -169,26 +169,26 @@ select {
 		@include button-styles($btnSearchColor, $btnSearchColor, $btnHoverColor, $btnSearchColor);
 	}
 	
-	// Icons
-	&.btn-default {
+	// Button Icons
+	%ico-base {
 		padding: 0px;
 		&.active {
 			box-shadow: none;
 		}
 	}
-	&.btn-add,
-	&.btn-ok {
-		@extend .btn-default;
+	&.ico-add,
+	&.ico-ok {
+		@extend %ico-base;
 		color: $successColor;
 	}
-	&.btn-delete,
-	&.btn-reject {
-		@extend .btn-default;
+	&.ico-delete,
+	&.ico-reject {
+		@extend %ico-base;
 		color: $errorColor;
 	}
-	&.btn-edit,
-	&.btn-return {
-		@extend .btn-default;
+	&.ico-edit,
+	&.ico-return {
+		@extend %ico-base;
 		color: $warningColor;
 	}
 }
@@ -251,6 +251,16 @@ select {
 /* LABEL */
 .dt-label {
 	font-weight: bold;
+}
+
+/* PAGE MSGs CONTAINER */
+.alerts-container {
+	& .alert:last-child {
+		margin-bottom: 3em;
+	}
+	& .validation-errors-container {
+		font-weight: 700;
+	}
 }
 
 
@@ -383,13 +393,6 @@ select {
 		& > th {
 			font-weight: 700;
 		}
-	}
-}
-
-/* PAGE MSGs CONTAINER */
-.alerts-container {
-	& .validation-errors-container {
-		font-weight: 700;
 	}
 }
 
@@ -598,11 +601,11 @@ body {
 	// Mobile header menu icon
 	& .navbar-toggle { 
 		margin: 2px 15px;
-		border: 1px solid $btnColorWhite;
+		border: 1px solid #ffffff;
 		
 		// 3 bars inside
 		& .icon-bar {
-			background-color: $btnBGColorWhite;
+			background-color: #ffffff;
 		}
 	}
 }
@@ -617,11 +620,6 @@ body {
 	@media only screen and (max-width : 768px) {
 		margin: 3em 0em;
 	}
-}
-
-/* ALERTS */	
-.alerts-container .alert:last-child {
-	margin-bottom: 3em;
 }
 
 /*** FOOTER *********************************************************/

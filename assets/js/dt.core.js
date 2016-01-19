@@ -1,8 +1,11 @@
-(function($) {
+var dt.core = (function($) {
 	
+	/***************************************************************************************
+	*** Document ready events **************************************************************
+	***************************************************************************************/
 	$(document).ready(function() {
 		
-		/*** Init jQuery datepicker *********************************************************/
+		/*** Inits jQuery datepicker ********************************************************/
 		$('.is-datepicker').datepicker({
 			changeMonth: 				true,
 			changeYear: 				true,
@@ -38,7 +41,7 @@
 			
 			var tmp = toggleTargetClasses.split('|');
 			
-			if (tmp.length == 1) {	// toggle the same element
+			if (tmp.length == 1) { // toggle the same element
 				var toggleClasses = '.' + tmp[0].replace(',', ',.');
 				$(toggleClasses).each(function() {
 					if ($(this).hasClass('hidden')) {
@@ -152,10 +155,11 @@
 			});
 		};
 		
-		/*** Shows modal messages ************************************************
+		/*** Shows modal messages ************************************************************
 		  Params:
-		    type 		- success, warning, error
+		    type 			- success, warning, error
 		    message 	- message text
+				callback	- callback function
 		*/
 		$.fn.ShowModal = function(type, message, callback) {
 		
@@ -215,19 +219,16 @@
 			}
 		};
 		
-		/*** Moves <select> option from one <select> to another or moves option **
-		  up/down within the same select.
-		  Params:
-		    from	- <select> obj to move selected option from
-		    to		- <select> obj to move option to
+		/*** Moves <select> option from one <select> to another or moves option up/down ******
+		  within the same select.
 		*/
 		var needNumerationOptions = [];
 		$('.move-select-options').on('click', function() {
 
 			var moveDirection = 'horizontal';
-			var inElement = ''; 				// class of element to move option up/down in
-			var toElement = '';					// class of element to move option from
-			var fromElement = '';				// class of element to move option to
+			var inElement = ''; 							// class of element to move option up/down in
+			var toElement = '';								// class of element to move option from
+			var fromElement = '';							// class of element to move option to
 			var needNumerationElement = ''; 	// class of element which options need to be numerated (empty if no numeration required)
 			
 			var classes = $(this).attr('class').split(' ');
@@ -333,7 +334,7 @@
 			}
 		});
 		
-		/*** Adds numbers 1,2,3... to <select> options **************************/
+		/*** Adds numbers 1,2,3... to <select> options **************************************/
 		$.fn.NumerateSelectOptions = function(elementToNumerate) {
 			var separator = '. ';
 			$(elementToNumerate + ' option').remove();
@@ -347,7 +348,7 @@
 			}
 		};
 		
-		/*** Shows/hides 'more info' row in the table ***************************/
+		/*** Shows/hides 'more info' row in the table ***************************************/
 		$('.dt-table-tr-clickable .dt-table-td:not(.row-actions)').on('click', function() {
 			var moreinfo = $(this).closest('.dt-table-tr-clickable').next('.dt-table-tr-fullinfo');
 			if (moreinfo.hasClass('hidden')) {
@@ -360,5 +361,27 @@
 			}
 		});
 	});
+	
+	/***************************************************************************************
+	*** Private Functions ******************************************************************
+	***************************************************************************************/
+	// Generates password
+	function generatePassword(length) {
+		var res = "";
+		var charset = "abcdefghijklnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+		for (var a=0,n=charset.length;a<length;++a) {
+			res += charset.charAt(Math.floor(Math.random() * n));
+		}
+		return res;
+	}
+
+	/***************************************************************************************
+	*** Public Functions/Properties ********************************************************
+	***************************************************************************************/
+	return {
+			generatePassword: function(length) {
+					return generatePassword(length);
+			}
+	}
 	
 })(jQuery);
