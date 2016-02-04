@@ -7,13 +7,25 @@
 *********************************************************************/
 .guidelines-elements-container {
 	& h2 {
-		margin: 40px 0px 20px;
+		margin: 100px 0px 20px;
 		&:first-of-type {
 			margin-top: 0px;
 		}
 	}
 }
 
+.guidelines-elements-container code {
+	display: block;
+	margin: 1em 0;
+	padding: 1em;
+	border: 1px solid #dddddd;
+	background-color: #f1f1f1;
+	white-space: pre;
+}
+
+.guidelines-elements-container .row-actions .btn + .btn {
+	margin-left: 0.5em;
+}
 
 
 

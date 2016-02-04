@@ -7,6 +7,7 @@
 	<link rel="stylesheet" type="text/css" href="assets/libs/jquery/jquery-ui-1.11.4.min.css">
 	<link rel="stylesheet" type="text/css" href="assets/libs/bootstrap/css/bootstrap-3.3.6.min.css">
 	<link rel="stylesheet" type="text/css" href="assets/libs/jquery.plugins/chosen/chosen.min.css">
+	<link rel="stylesheet" type="text/css" href="assets/libs/plugins/bootstrap-switch/bootstrap-switch.min.css">
 	<!-- <link rel="stylesheet" type="text/css" href="assets/css/dt.core.css"> -->
 	<link rel="stylesheet" type="text/css" href="assets/css/dt.custom.css">
 	<!--[if IE]>
@@ -33,7 +34,19 @@
 						<a class="dropdown-toggle" data-toggle="dropdown" href="#">Elements<span class="caret"></span></a>
 						<ul class="dropdown-menu">
 							<li><a href="#section-001">Basic elements</a></li>
-							<li><a href="#section-002">Components</a></li>
+							<li><a href="#section-002">Messages / Alerts</a></li>
+							<li><a href="#section-003">Modals</a></li>
+							<li><a href="#section-004">Form</a></li>
+							<li><a href="#section-005">Date Picker</a></li>
+							<li><a href="#section-006">Autocomplete</a></li>
+							<li><a href="#section-007">Enhanced Select</a></li>
+							<li><a href="#section-008">Masked Input</a></li>
+							<li><a href="#section-009">Loading Spinner</a></li>
+							<li><a href="#section-010">Accordion</a></li>
+							<li><a href="#section-011">Switch</a></li>
+							
+							<li><a href="#section-020">Assignable Select Options</a></li>
+							<li><a href="#section-021">Full Panel Table</a></li>
 						</ul>
 					</li>
 				</ul>
@@ -46,60 +59,60 @@
 			<!-- Messages -->
 			<div class="alerts-container">
 				<!--
-				<div role="alert" class="alert alert-info"></div>
+				<div role="alert" class="alert alert-info">Info</div>
 				<div role="alert" class="validation-errors-container alert alert-danger">Validation Errors:<ul><li></li></ul></div>
 				-->
 			</div>
 			<!-- Content -->
 			<h2 id="section-001">Basic elements</h2>
-			<div class="panel panel-default" id="panel-basic-elements">
+			<div class="panel" id="panel-basic-elements">
 				<div class="panel-head">
 					Panel
 				</div>
 				<div class="panel-body">
 					<form action="#" role="form" class="form-horizontal">
 						<div class="row">
-							<div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+							<div class="form-group col-sm-6 col-xs-12">
 								<label class="col-lg-6 col-md-6 col-sm-6 col-xs-12 control-label" for="sample-input-text">
 									Text Input
 								</label>
-								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+								<div class="col-sm-6 col-xs-12">
 									<input type="text" class="form-control" id="sample-input-text" placeholder="Enter some text here" />
 								</div>
 							</div>
-							<div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+							<div class="form-group col-sm-6 col-xs-12">
 								<label class="col-lg-6 col-md-6 col-sm-6 col-xs-12 control-label" for="sample-password-text">
 									Password Input
 								</label>
-								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+								<div class="col-sm-6 col-xs-12">
 									<input type="password" class="form-control" id="sample-password-text" placeholder="Enter password here" />
 								</div>
 							</div>
 						</div> <!-- End of row -->
 						<div class="row">
-							<div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
-								<label class="col-lg-6 col-md-6 col-sm-6 col-xs-12 control-label" for="sample-textarea">
+							<div class="form-group col-sm-6 col-xs-12">
+								<label class="col-sm-6 col-xs-12 control-label" for="sample-textarea">
 									Textarea
 								</label>
-								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+								<div class="col-sm-6 col-xs-12">
 									<textarea class="form-control" id="sample-textarea" placeholder="Enter long text here"></textarea>
 								</div>
 							</div>
-							<div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
-								<label class="col-lg-6 col-md-6 col-sm-6 col-xs-12 control-label" for="sample-password-text">
+							<div class="form-group col-sm-6 col-xs-12">
+								<label class="col-sm-6 col-xs-12 control-label" for="sample-static-text">
 									Static Text
 								</label>
-								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+								<div class="col-sm-6 col-xs-12">
 									Static text static text static text static text static text static text static text static text static text static text static text static text static text static text.
 								</div>
 							</div>
 						</div> <!-- End of row -->
 						<div class="row">
-							<div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
-								<label class="col-lg-6 col-md-6 col-sm-6 col-xs-12 control-label" for="sample-textarea">
+							<div class="form-group col-sm-6 col-xs-12">
+								<label class="col-sm-6 col-xs-12 control-label" for="sample-select">
 									Classic Select
 								</label>
-								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+								<div class="col-sm-6 col-xs-12">
 									<select class="form-control" id="sample-select">
 										<option value=""></option>
 										<option value="">Option 01</option>
@@ -115,22 +128,22 @@
 									</select>
 								</div>
 							</div>
-							<div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
-								<label class="col-lg-6 col-md-6 col-sm-6 col-xs-12 control-label" for="sample-textarea">
+							<div class="form-group col-sm-6 col-xs-12">
+								<label class="col-sm-6 col-xs-12 control-label" for="sample-file-upload">
 									File Upload
 								</label>
-								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+								<div class="col-sm-6 col-xs-12">
 									<input type="file" name="sample-file-upload" />
 								</div>
 							</div>
 						</div> <!-- End of row -->
 						<div class="row">
-							<div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
-								<label class="col-lg-6 col-md-6 col-sm-6 col-xs-12 control-label" for="sample-password-text">
+							<div class="form-group col-sm-6 col-xs-12">
+								<label class="col-sm-6 col-xs-12 control-label" for="sample-multiselect">
 									Classic Multiselect
 								</label>
-								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-									<select class="form-control" id="sample-select" multiple="multiple">
+								<div class="col-sm-6 col-xs-12">
+									<select class="form-control" id="sample-multiselect" multiple="multiple">
 										<option value="">Option 01</option>
 										<option value="">Option 02</option>
 										<option value="">Option 03</option>
@@ -144,12 +157,12 @@
 									</select>
 								</div>
 							</div>
-							<div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
-								<label class="col-lg-6 col-md-6 col-sm-6 col-xs-12 control-label" for="sample-password-text">
+							<div class="form-group col-sm-6 col-xs-12">
+								<label class="col-sm-6 col-xs-12 control-label" for="sample-multiselect-select-all">
 									Classic Multiselect with "Select All" option
 								</label>
-								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-									<select class="form-control has-select-all" id="sample-select" multiple="multiple">
+								<div class="col-sm-6 col-xs-12">
+									<select class="form-control has-select-all" id="sample-multiselect-select-all" multiple="multiple">
 										<option value="select-all">Select All</option>
 										<option value="">Option 01</option>
 										<option value="">Option 02</option>
@@ -166,11 +179,11 @@
 							</div>
 						</div> <!-- End of row -->
 						<div class="row">
-							<div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
-								<label class="col-lg-6 col-md-6 col-sm-6 col-xs-12 control-label" for="sample-textarea">
+							<div class="form-group col-sm-6 col-xs-12">
+								<label class="col-sm-6 col-xs-12 control-label" for="sample-radio">
 									Radio Button
 								</label>
-								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 radio-group">
+								<div class="col-sm-6 col-xs-12 radio-group">
 									<label><input type="radio" name="rb-01" value="">Option 01</label>
 									<br/>
 									<label><input type="radio" name="rb-01" value="">Option 02</label>
@@ -180,11 +193,11 @@
 									<label><input type="radio" name="rb-01" value="">Option 04</label>
 								</div>
 							</div>
-							<div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
-								<label class="col-lg-6 col-md-6 col-sm-6 col-xs-12 control-label" for="sample-textarea">
+							<div class="form-group col-sm-6 col-xs-12">
+								<label class="col-lg-6 col-md-6 col-sm-6 col-xs-12 control-label" for="sample-ckb">
 									Checkbox
 								</label>
-								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 checkbox-group">
+								<div class="col-sm-6 col-xs-12 checkbox-group">
 									<label><input type="checkbox" name="ckb-01" value="">Option 01</label>
 									<br/>
 									<label><input type="checkbox" name="ckb-01" value="">Option 02</label>
@@ -195,12 +208,13 @@
 								</div>
 							</div>
 						</div> <!-- End of row -->
+						<div class="row">&nbsp;</div>
 						<div class="row">
-							<div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
-								<label class="col-lg-12 col-md-12 col-sm-12 col-xs-12 control-label text-align-left" for="sample-table">
+							<div class="form-group col-xs-12">
+								<label class="col-xs-12 control-label text-align-left" for="sample-table">
 									Responsive Table
 								</label>
-								<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 checkbox-group">
+								<div class="col-xs-12 checkbox-group">
 									<div class="table-responsive" id="sample-table">          
 										<table class="table table-striped table-bordered table-hover">
 											<thead>
@@ -210,7 +224,7 @@
 													<th>Column 03</th>
 													<th>Column 04</th>
 													<th>Column 05</th>
-													<th>Column 06</th>
+													<th>Actions</th>
 												</tr>
 											</thead>
 											<tbody>
@@ -220,7 +234,12 @@
 													<td>Data 03</td>
 													<td>Data 04</td>
 													<td>Data 05</td>
-													<td>Data 06</td>
+													<td class="row-actions">
+														<div class="btn ico-info"><span class="glyphicon glyphicon-info-sign"></span></div>
+														<div class="btn ico-add"><span class="glyphicon glyphicon-plus"></span></div>
+														<div class="btn ico-edit"><span class="glyphicon glyphicon-pencil"></span></div>
+														<div class="btn ico-delete"><span class="glyphicon glyphicon-remove"></span></div>
+													</td>
 												</tr>
 												<tr>
 													<td>Data 11</td>
@@ -228,7 +247,12 @@
 													<td>Data 13</td>
 													<td>Data 14</td>
 													<td>Data 15</td>
-													<td>Data 16</td>
+													<td class="row-actions">
+														<div class="btn ico-info"><span class="glyphicon glyphicon-info-sign"></span></div>
+														<div class="btn ico-add"><span class="glyphicon glyphicon-plus"></span></div>
+														<div class="btn ico-edit"><span class="glyphicon glyphicon-pencil"></span></div>
+														<div class="btn ico-delete"><span class="glyphicon glyphicon-remove"></span></div>
+													</td>
 												</tr>
 												<tr>
 													<td>Data 21</td>
@@ -236,7 +260,12 @@
 													<td>Data 23</td>
 													<td>Data 24</td>
 													<td>Data 25</td>
-													<td>Data 26</td>
+													<td class="row-actions">
+														<div class="btn ico-info"><span class="glyphicon glyphicon-info-sign"></span></div>
+														<div class="btn ico-add"><span class="glyphicon glyphicon-plus"></span></div>
+														<div class="btn ico-edit"><span class="glyphicon glyphicon-pencil"></span></div>
+														<div class="btn ico-delete"><span class="glyphicon glyphicon-remove"></span></div>
+													</td>
 												</tr>
 												<tr>
 													<td>Data 31</td>
@@ -244,7 +273,12 @@
 													<td>Data 33</td>
 													<td>Data 34</td>
 													<td>Data 35</td>
-													<td>Data 36</td>
+													<td class="row-actions">
+														<div class="btn ico-info"><span class="glyphicon glyphicon-info-sign"></span></div>
+														<div class="btn ico-add"><span class="glyphicon glyphicon-plus"></span></div>
+														<div class="btn ico-edit"><span class="glyphicon glyphicon-pencil"></span></div>
+														<div class="btn ico-delete"><span class="glyphicon glyphicon-remove"></span></div>
+													</td>
 												</tr>
 											</tbody>
 										</table>
@@ -252,13 +286,602 @@
 								</div>
 							</div>
 						</div> <!-- End of row -->
+						<div class="row">
+							<div class="form-group col-xs-12">
+								<label class="col-xs-12 control-label text-align-left" for="sample-buttons">
+									Buttons
+								</label>
+								<div class="col-xs-12" id="sample-buttons">
+									<input type="button" class="btn btn-default" value="Default" />
+									<input type="button" class="btn btn-submit" value="Submit" />
+									<input type="button" class="btn btn-reset" value="Reset" />
+									<input type="button" class="btn btn-cancel" value="Cancel" />
+								</div>
+							</div>
+						</div> <!-- End of row -->
 					</form>
 				</div> <!-- End of panel-body -->
 			</div> <!-- End of panel-basic-elements -->
 			
-			<div class="panel panel-default" id="panel-table-full-panel">
+			<h2 id="section-002">Messages / Alerts</h2>
+			<div role="alert" class="alert alert-info">Info</div>
+			<div role="alert" class="alert alert-warning">Warning</div>
+			<div role="alert" class="alert alert-danger">Error</div>
+			<div role="alert" class="alert alert-success">Success</div>
+			<div role="alert" class="alert alert-info">
+				Dismissible Info Alert
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			</div>
+			
+			<h2 id="section-003">Modals</h2>
+			<p>
+				Modals are part of Bootstrap. Documentation can be found <a href="http://getbootstrap.com/javascript/#modals">here</a>. Modal open event can be attached to a button or a link by adding data attributes: data-toggle="modal" data-target="#modal-id". Alternatively, modals initialized with the following script:
+				<code>
+$('.selector').modal();
+				</code>
+			</p>
+			<p>
+				Helper method that displays modal alerts is included into dt.core.js. Helper method is:
+				<code>
+/*
+	type			string	required 						- default, success, info, warning, error
+	message		string	required 						- alert message
+	showIcon		bool		optional	default_value = false	- adds an success/info/etc. sign in front of the message
+	showHeader	bool		optional	default_value = false 	- determines if header need to be displayed
+	title			string	optional	default_value = ''		- modal title displayed in header
+	buttons		mixed	optional	default_value = false	- list of button objects: 
+		[{
+			text:			'Ok',
+			classes:		'btn-submit',
+			closeModal:	false,
+			click:			false
+		}, 
+		{
+			text:			'Close',
+			classes:		'btn-cancel',
+			closeModal:	true,
+			click:			false
+		},
+		{
+			text:			'My Button',
+			classes:		'btn-default',
+			closeModal:	false,
+			click:			function() { alert('My Button clicked!'); }
+		}]
+	callback		mixed	optional	default_value = false 	- false or function to be executed after modal is shown
+*/
+dt.core.modal.showAlert(type, message, showIcon, showHeader, title, buttons, callback);
+				</code>
+			</p>
+			Modal alerts: <a href="#" id="show-modal-alert-default">default</a>, <a href="#" id="show-modal-alert-info">info</a>, <a href="#" id="show-modal-alert-success">success</a>, <a href="#" id="show-modal-alert-warning">warning</a>, <a href="#" id="show-modal-alert-error">error</a>
+			<br/><br/>
+			Modal alerts with icon: <b>default doesn't have icon!</b>, <a href="#" id="show-modal-alert-info-icon">info</a>, <a href="#" id="show-modal-alert-success-icon">success</a>, <a href="#" id="show-modal-alert-warning-icon">warning</a>, <a href="#" id="show-modal-alert-error-icon">error</a>
+			<br/><br/>
+			Modal alert with header: <a href="#" id="show-modal-alert-default-with-header">show modal</a>
+			<br/><br/>
+			Modal alert with header and buttons: <a href="#" id="show-modal-alert-default-with-header-and-footer">show modal</a>
+			<br/><br/>
+			Modal alert with callback: <a href="#" id="show-modal-alert-default-with-callback">show modal</a>
+			
+			<h2 id="section-004">Form</h2>
+			<p>
+				Form validation errors will be attached to the fields. To show errors in the form of tooltips just add "jquery-validate-tooltip" class to the form.
+			</p>
+			<form action="#" role="form" class="form-horizontal" id="sample-form">
+				<div class="panel" id="panel-sample-form">
+					<div class="panel-head">
+						Panel
+					</div>
+					<div class="panel-body">
+						<div class="row">
+							<div class="form-group required col-sm-6 col-xs-12">
+								<label class="col-lg-6 col-md-6 col-sm-6 col-xs-12 control-label" for="sample-input-text">
+									Text
+								</label>
+								<div class="col-sm-6 col-xs-12">
+									<input type="text" class="form-control" id="sample-input-text" name="sampleInputText" placeholder="Enter some text here" />
+								</div>
+							</div>
+							<div class="form-group required col-sm-6 col-xs-12">
+								<label class="col-lg-6 col-md-6 col-sm-6 col-xs-12 control-label" for="sample-password-text">
+									Password
+								</label>
+								<div class="col-sm-6 col-xs-12">
+									<input type="password" class="form-control" id="sample-password-text" name="samplePasswordText" placeholder="Enter password here" />
+								</div>
+							</div>
+						</div> <!-- End of row -->
+						<div class="row">
+							<div class="form-group required col-sm-6 col-xs-12">
+								<label class="col-sm-6 col-xs-12 control-label" for="sample-textarea">
+									Textarea
+								</label>
+								<div class="col-sm-6 col-xs-12">
+									<textarea class="form-control" id="sample-textarea" name="sampleTextarea" rows="4" placeholder="Enter long text here"></textarea>
+								</div>
+							</div>
+							<div class="form-group required col-sm-6 col-xs-12">
+								<label class="col-sm-6 col-xs-12 control-label" for="sample-select-select-all">
+									Classic Multiselect with "Select All" option
+								</label>
+								<div class="col-sm-6 col-xs-12">
+									<select class="form-control has-select-all" id="sample-select-select-all" name="sampleSelectSelectAll" multiple="multiple">
+										<option value="select-all">Select All</option>
+										<option value="1">Option 01</option>
+										<option value="2">Option 02</option>
+										<option value="3">Option 03</option>
+										<option value="4">Option 04</option>
+										<option value="5">Option 05</option>
+										<option value="6">Option 06</option>
+										<option value="7">Option 07</option>
+										<option value="8">Option 08</option>
+										<option value="9">Option 09</option>
+										<option value="10">Option 10</option>
+									</select>
+								</div>
+							</div>
+						</div> <!-- End of row -->
+						<div class="row">
+							<div class="form-group required col-sm-6 col-xs-12">
+								<label class="col-sm-6 col-xs-12 control-label" for="sample-select">
+									Classic Select
+								</label>
+								<div class="col-sm-6 col-xs-12">
+									<select class="form-control" id="sample-select" name="sampleSelect">
+										<option value=""></option>
+										<option value="1">Option 01</option>
+										<option value="2">Option 02</option>
+										<option value="3">Option 03</option>
+										<option value="4">Option 04</option>
+										<option value="5">Option 05</option>
+										<option value="6">Option 06</option>
+										<option value="7">Option 07</option>
+										<option value="8">Option 08</option>
+										<option value="9">Option 09</option>
+										<option value="10">Option 10</option>
+									</select>
+								</div>
+							</div>
+							<div class="form-group required col-sm-6 col-xs-12">
+								<label class="col-sm-6 col-xs-12 control-label" for="sample-file-upload">
+									File Upload
+								</label>
+								<div class="col-sm-6 col-xs-12">
+									<input type="file" id="sample-file-upload" name="sampleFileUpload" />
+								</div>
+							</div>
+						</div> <!-- End of row -->
+						<div class="row">
+							<div class="form-group required col-sm-6 col-xs-12">
+								<label class="col-sm-6 col-xs-12 control-label" for="sample-radio-group">
+									Radio Button
+								</label>
+								<div class="col-sm-6 col-xs-12 radio-group error">
+									<label><input type="radio" name="sampleRadioGroup" value="">Option 01</label>
+									<label><input type="radio" name="sampleRadioGroup" value="">Option 02</label>
+									<label><input type="radio" name="sampleRadioGroup" value="">Option 03</label>
+									<label><input type="radio" name="sampleRadioGroup" value="">Option 04</label>
+								</div>
+							</div>
+							<div class="form-group required col-sm-6 col-xs-12">
+								<label class="col-lg-6 col-md-6 col-sm-6 col-xs-12 control-label" for="sample-ckb">
+									Checkbox
+								</label>
+								<div class="col-sm-6 col-xs-12 checkbox-group">
+									<label><input type="checkbox" name="sampleCkb" value="">Option 01</label>
+									<label><input type="checkbox" name="sampleCkb" value="">Option 02</label>
+									<label><input type="checkbox" name="sampleCkb" value="">Option 03</label>
+									<label><input type="checkbox" name="sampleCkb" value="">Option 04</label>
+								</div>
+							</div>
+						</div> <!-- End of row -->
+					</div> <!-- End of panel-body -->
+				</div> <!-- End of panel-sample-form -->
+				<div class="form-buttons">
+					<input type="button" class="btn btn-submit validate-form" value="Submit" />
+					<input type="button" class="btn btn-reset" value="Reset" />
+				</div>
+			</form>
+			
+			<p>
+				Form can be also shown in the modal.
+			</p>
+			<p>
+				<input type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-form-modal" value="Open Modal" id="show-modal-from" />
+			</p>
+			<div class="modal modal-msg-type-default fade" id="modal-form-modal" tabindex="-1" role="dialog">
+				<div class="modal-dialog modal-lg">
+					<div class="modal-content">
+						<form action="#" role="form" class="form-horizontal modal-form" id="sample-modal-form">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+								<h4 class="modal-title">Modal Form</h4>
+							</div>
+							<div class="modal-body">
+								<div class="row">
+									<div class="form-group required col-md-6 col-xs-12">
+										<label class="col-md-6 col-xs-12 control-label" for="sample-input-text">
+											Text
+										</label>
+										<div class="col-md-6 col-xs-12">
+											<input type="text" class="form-control" id="sample-input-text" name="sampleInputText" placeholder="Enter some text here" />
+										</div>
+									</div>
+									<div class="form-group required col-md-6 col-xs-12">
+										<label class="col-md-6 col-xs-12 control-label" for="sample-password-text">
+											Password
+										</label>
+										<div class="col-md-6 col-xs-12">
+											<input type="password" class="form-control" id="sample-password-text" name="samplePasswordText" placeholder="Enter password here" />
+										</div>
+									</div>
+								</div> <!-- End of row -->
+								<div class="row">
+									<div class="form-group required col-md-6 col-xs-12">
+										<label class="col-md-6 col-xs-12 control-label" for="sample-textarea">
+											Textarea
+										</label>
+										<div class="col-md-6 col-xs-12">
+											<textarea class="form-control" id="sample-textarea" name="sampleTextarea" rows="4" placeholder="Enter long text here"></textarea>
+										</div>
+									</div>
+									<div class="form-group required col-md-6 col-xs-12">
+										<label class="col-md-6 col-xs-12 control-label" for="sample-select-select-all">
+											Classic Multiselect with "Select All" option
+										</label>
+										<div class="col-md-6 col-xs-12">
+											<select class="form-control has-select-all" id="sample-select-select-all" name="sampleSelectSelectAll" multiple="multiple">
+												<option value="select-all">Select All</option>
+												<option value="1">Option 01</option>
+												<option value="2">Option 02</option>
+												<option value="3">Option 03</option>
+												<option value="4">Option 04</option>
+												<option value="5">Option 05</option>
+												<option value="6">Option 06</option>
+												<option value="7">Option 07</option>
+												<option value="8">Option 08</option>
+												<option value="9">Option 09</option>
+												<option value="10">Option 10</option>
+											</select>
+										</div>
+									</div>
+								</div> <!-- End of row -->
+								<div class="row">
+									<div class="form-group required col-md-6 col-xs-12">
+										<label class="col-md-6 col-xs-12 control-label" for="sample-select">
+											Classic Select
+										</label>
+										<div class="col-md-6 col-xs-12">
+											<select class="form-control" id="sample-select" name="sampleSelect">
+												<option value=""></option>
+												<option value="1">Option 01</option>
+												<option value="2">Option 02</option>
+												<option value="3">Option 03</option>
+												<option value="4">Option 04</option>
+												<option value="5">Option 05</option>
+												<option value="6">Option 06</option>
+												<option value="7">Option 07</option>
+												<option value="8">Option 08</option>
+												<option value="9">Option 09</option>
+												<option value="10">Option 10</option>
+											</select>
+										</div>
+									</div>
+									<div class="form-group required col-md-6 col-xs-12">
+										<label class="col-md-6 col-xs-12 control-label" for="sample-file-upload">
+											File Upload
+										</label>
+										<div class="col-md-6 col-xs-12">
+											<input type="file" id="sample-file-upload" name="sampleFileUpload" />
+										</div>
+									</div>
+								</div> <!-- End of row -->
+								<div class="row">
+									<div class="form-group required col-md-6 col-xs-12">
+										<label class="col-md-6 col-xs-12 control-label" for="sample-radio-group">
+											Radio Button
+										</label>
+										<div class="col-md-6 col-xs-12 radio-group error">
+											<label><input type="radio" name="sampleRadioGroup" value="">Option 01</label>
+											<label><input type="radio" name="sampleRadioGroup" value="">Option 02</label>
+											<label><input type="radio" name="sampleRadioGroup" value="">Option 03</label>
+											<label><input type="radio" name="sampleRadioGroup" value="">Option 04</label>
+										</div>
+									</div>
+									<div class="form-group required col-md-6 col-xs-12">
+										<label class="col-md-6 col-xs-12 control-label" for="sample-ckb">
+											Checkbox
+										</label>
+										<div class="col-md-6 col-xs-12 checkbox-group">
+											<label><input type="checkbox" name="sampleCkb" value="">Option 01</label>
+											<label><input type="checkbox" name="sampleCkb" value="">Option 02</label>
+											<label><input type="checkbox" name="sampleCkb" value="">Option 03</label>
+											<label><input type="checkbox" name="sampleCkb" value="">Option 04</label>
+										</div>
+									</div>
+								</div> <!-- End of row -->
+							</div>
+							<div class="modal-footer">
+								<div class="form-buttons">
+									<input type="button" class="btn btn-submit validate-form" value="Submit" />
+									<input type="button" class="btn btn-cancel" data-dismiss="modal" aria-label="Close" value="Close" />
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+
+			<h2 id="section-005">Date Picker</h2>
+			<p>
+				Date Picker utilizes jQuery UI datepicker component (<a href="https://jqueryui.com/datepicker/" target="_blank">component link</a>). Date Picker initialized with the following script:
+				<code>
+$('selector').datepicker();
+				</code>
+			</p>
+			<div class="row">
+				<div class="col-sm-3 col-xs-12">
+					<input type="text" class="form-control is-datepicker" placeholder="Select Date" />
+				</div>
+			</div>
+			
+			<h2 id="section-006">Autocomplete</h2>
+			<p>
+				Autocomplete utilizes jQuery UI autocomplete component (<a href="https://jqueryui.com/autocomplete/" target="_blank">component link</a>). Autocomplete initialized with the following script:
+				<code>
+var js_list = [
+	"Australia",
+	"Austria",
+	"Brazil",
+	"Canada",
+	"Chile",
+	"China",
+	"Denmark",
+	"Egypt",
+	"France",
+	"Germany",
+	"Greece",
+	"India",
+	...];
+$('selector').autocomplete({source: js_list});
+				</code>
+			</p>
+			<div class="row">
+				<div class="col-sm-3 col-xs-12">
+					<input type="text" class="form-control is-autocomplete" placeholder="Start typing a country name" />
+				</div>
+			</div>
+			
+			<h2 id="section-007">Enhanced Select</h2>
+			<p>
+				Enhanced Select utilizes jQuery plugin "Chosen" (<a href="https://plugins.jquery.com/chosen/" target="_blank">plugin link</a>). Enhanced Select initialized with the following script:
+				<code>
+$('.selector').chosen();
+				</code>
+			</p>
+			<div class="row">
+				<div class="col-sm-3 col-xs-12">
+					<select class="form-control enhanced-select" id="sample-enhanced-select" data-placeholder="Select one option">
+						<option value=""></option>
+						<option value="">Option 01</option>
+						<option value="">Option 02</option>
+						<option value="">Option 03</option>
+						<option value="">Option 04</option>
+						<option value="">Option 05</option>
+						<option value="">Option 06</option>
+						<option value="">Option 07</option>
+						<option value="">Option 08</option>
+						<option value="">Option 09</option>
+						<option value="">Option 10</option>
+					</select>
+				</div>
+			</div>
+			<div class="row">&nbsp;</div>
+			<div class="row">
+				<div class="col-sm-3 col-xs-12">
+					<select class="form-control enhanced-multiselect" multiple="multiple" id="sample-enhanced-multiselect" data-placeholder="Select up to 3 options">
+						<option value="">Option 01</option>
+						<option value="">Option 02</option>
+						<option value="">Option 03</option>
+						<option value="">Option 04</option>
+						<option value="">Option 05</option>
+						<option value="">Option 06</option>
+						<option value="">Option 07</option>
+						<option value="">Option 08</option>
+						<option value="">Option 09</option>
+						<option value="">Option 10</option>
+					</select>
+				</div>
+			</div>
+			
+			<h2 id="section-008">Masked Input</h2>
+			<p>
+				Masked Input utilizes jQuery plugin "Masked Input" (<a href="https://plugins.jquery.com/maskedinput/" target="_blank">plugin link</a>). Masked Input initialized with the following script:
+				<code>
+$('.selector').mask("string mask i.e. 99/99/9999");
+				</code>
+			</p>
+			<div class="panel" id="panel-components-masked-input">
 				<div class="panel-head">
-					DT Table that takes full panel
+					Panel
+				</div>
+				<div class="panel-body">
+					<form action="#" role="form" class="form-horizontal">
+						<div class="row">
+							<div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+								<label class="col-lg-6 col-md-6 col-sm-6 col-xs-12 control-label" for="sample-datepicker">
+									Masked Input (Date)
+								</label>
+								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+									<input type="text" class="form-control masked-input-date" placeholder="dd/mm/yyyy" />
+								</div>
+							</div>
+							<div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+								<label class="col-lg-6 col-md-6 col-sm-6 col-xs-12 control-label" for="sample-datepicker">
+									Masked Input (UAE Phone Number)
+								</label>
+								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+									<input type="text" class="form-control masked-input-phone-uae-short" placeholder="04-1234567" />
+								</div>
+							</div>
+						</div> <!-- End of row -->
+						<div class="row">
+							<div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+								<label class="col-lg-6 col-md-6 col-sm-6 col-xs-12 control-label" for="sample-datepicker">
+									Masked Input (UAE Mobile Number)
+								</label>
+								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+									<input type="text" class="form-control masked-input-mobile-uae-short" placeholder="050-1234567" />
+								</div>
+							</div>
+							<div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+								<label class="col-lg-6 col-md-6 col-sm-6 col-xs-12 control-label" for="sample-datepicker">
+									Masked Input (UAE Number With Country Code)
+								</label>
+								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+									<input type="text" class="form-control masked-input-phone-uae-long" placeholder="(971) 04-1234567" />
+								</div>
+							</div>
+						</div> <!-- End of row -->
+						<div class="row">
+							<div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+								<label class="col-lg-6 col-md-6 col-sm-6 col-xs-12 control-label" for="sample-datepicker">
+									Masked Input (POB)
+								</label>
+								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+									<input type="text" class="form-control masked-input-pob" placeholder="12345 DXB" />
+								</div>
+							</div>
+						</div> <!-- End of row -->
+					</form>
+				</div> <!-- End of panel-body -->
+			</div> <!-- End of panel-components-masked-input -->
+			
+			<h2 id="section-009">Loading Spinner</h2>
+			<p>
+				Loading Spinner is part of dt.core.js. Loading Spinner has the following methods/properties:
+				<code>
+// Spinner container's HTML id. Default is "loading-spinner-container"
+dt.core.loadingSpinner.id;
+
+// Displays spinner
+dt.core.loadingSpinner.show();
+
+// Hides spinner
+dt.core.loadingSpinner.hide();
+				</code>
+			</p>
+			<a href="#" id="show-loading-spinner">Show Spinner</a>
+			
+			<h2 id="section-010">Accordion</h2>
+			<p>
+				Accordions are part of Bootstrap. Documentation can be found <a href="http://getbootstrap.com/2.3.2/javascript.html#collapse">here</a>.
+			</p>
+			<div class="panel-group" id="accordion">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<a data-toggle="collapse" data-parent="#accordion" href="#collapse1">Title 01</a>
+						</h4>
+					</div>
+					<div id="collapse1" class="panel-collapse collapse in">
+						<div class="panel-body">
+							Content 01
+						</div>
+					</div>
+				</div>
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<a data-toggle="collapse" data-parent="#accordion" href="#collapse2">Title 02</a>
+						</h4>
+					</div>
+					<div id="collapse2" class="panel-collapse collapse">
+						<div class="panel-body">
+							Content 02
+						</div>
+					</div>
+				</div>
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<a data-toggle="collapse" data-parent="#accordion" href="#collapse3">Title 03</a>
+						</h4>
+					</div>
+					<div id="collapse3" class="panel-collapse collapse">
+						<div class="panel-body">
+							Content 03
+						</div>
+					</div>
+				</div>
+			</div> <!-- End of accordion panel-group -->
+			
+			<h2 id="section-011">Switch</h2>
+			<p>
+				Bootstrap Switch is a third party component (<a href="http://www.bootstrap-switch.org/">plugin link</a>). Bootstrap Switch initialized with the following script
+				<code>
+$('selector').bootstrapSwitch();
+				</code>
+			</p>
+			<input type="checkbox" name="bootstrapSwitch" class="bootstrap-switch" checked />
+			
+			<h2 id="section-020">Assignable Select Options</h2>
+			<p>
+				Assignable Select Options is a custom DT component. Requires "dt.core.js" and "dt.core.css".
+			</p>
+			<div class="panel panel-assignable-select-options">
+				<div class="panel-head">
+					Panel
+				</div>
+				<div class="panel-body">
+					<form action="#" role="form" class="form-horizontal">
+						<div class="row">
+							<div class="container-fluid ddl-available-assigned-container">
+								<div class="form-group ddl-available-container">
+									<label class="control-label" for="services-available">
+										Available Options
+									</label>
+									<select class="select form-control has-select-all" id="services-available" multiple="multiple" size="10">
+										<option value="select-all">Select All</option>
+										<option value="1">Approver</option>
+										<option value="2">HD Daily</option>
+										<option value="3">HD Temporary</option>
+										<option value="4">HD Permanent</option>
+										<option value="5">HD Print Pass</option>
+										<option value="6">HD VIP</option>
+										<option value="7">HD Visitor</option>
+										<option value="8">Special user</option>
+										<option value="9">Host Company</option>
+									</select>
+								</div>
+								<div class="form-group ddl-available-assigned-controls move-h">
+									<div class="btn move-select-options move-from-services-available move-to-services-assigned need-numeration-services-assigned"><span class="glyphicon glyphicon-arrow-right"></span></div>
+									<div class="btn move-select-options move-from-services-assigned move-to-services-available need-numeration-services-assigned"><span class="glyphicon glyphicon-arrow-left"></span></div>
+								</div>
+								<div class="form-group required ddl-assigned-container">
+									<label class="control-label" for="services-assigned">
+										Assigned Options
+									</label>
+									<select class="select form-control" id="services-assigned" multiple="multiple" size="10">
+									</select>
+								</div>
+								<div class="form-group ddl-available-assigned-controls move-v">
+									<div class="btn move-select-options move-up-services-assigned need-numeration-services-assigned"><span class="glyphicon glyphicon-arrow-up"></span></div>
+									<div class="btn move-select-options move-down-services-assigned need-numeration-services-assigned"><span class="glyphicon glyphicon-arrow-down"></span></div>
+								</div>
+							</div>
+						</div> <!-- End of row -->
+					</form>
+				</div> <!-- End of panel-body -->
+			</div> <!-- End of panel-assignable-select-options -->
+			
+			<h2 id="section-021">Full Panel Table</h2>
+			<p>
+				Full Panel Table is a custom DT HTML table that takes full bootstrap panel and doesn't use &lt;table&gt; tag. Requires "dt.core.css".
+			</p>
+			<div class="panel" id="panel-table-full-panel">
+				<div class="panel-head">
+					Panel
 				</div>
 				<div class="panel-body dt-table dt-table-striped dt-table-hover">
 					<!-- Table Head -->
@@ -324,178 +947,6 @@
 						</div>
 				</div>
 			</div> <!-- End of panel-table-full-panel -->
-			
-			<h2 id="section-002">Components</h2>
-			<div class="panel panel-default" id="panel-components">
-				<div class="panel-head">
-					Components
-				</div>
-				<div class="panel-body">
-					<form action="#" role="form" class="form-horizontal">
-						<div class="row">
-							<div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
-								<label class="col-lg-6 col-md-6 col-sm-6 col-xs-12 control-label" for="sample-datepicker">
-									Date Picker
-								</label>
-								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-									<input type="text" class="form-control is-datepicker" placeholder="Select Date" />
-								</div>
-							</div>
-							<div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
-								<label class="col-lg-6 col-md-6 col-sm-6 col-xs-12 control-label" for="sample-autocomplete">
-									Autocomplete
-								</label>
-								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-									<input type="text" class="form-control is-autocomplete" placeholder="Start typing a country name" />
-								</div>
-							</div>
-						</div> <!-- End of row -->
-						<div class="row">
-							<div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
-								<label class="col-lg-6 col-md-6 col-sm-6 col-xs-12 control-label" for="sample-enhanced-select">
-									Enhanced Select
-								</label>
-								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-									<select class="form-control enhanced-select" id="sample-enhanced-select" data-placeholder="Select one option">
-										<option value=""></option>
-										<option value="">Option 01</option>
-										<option value="">Option 02</option>
-										<option value="">Option 03</option>
-										<option value="">Option 04</option>
-										<option value="">Option 05</option>
-										<option value="">Option 06</option>
-										<option value="">Option 07</option>
-										<option value="">Option 08</option>
-										<option value="">Option 09</option>
-										<option value="">Option 10</option>
-									</select>
-								</div>
-							</div>
-							<div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
-								<label class="col-lg-6 col-md-6 col-sm-6 col-xs-12 control-label" for="sample-enhanced-multiselect">
-									Enhanced Multiselect
-								</label>
-								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-									<select class="form-control enhanced-multiselect" multiple="multiple" id="sample-enhanced-multiselect" data-placeholder="Select up to 3 options">
-										<option value="">Option 01</option>
-										<option value="">Option 02</option>
-										<option value="">Option 03</option>
-										<option value="">Option 04</option>
-										<option value="">Option 05</option>
-										<option value="">Option 06</option>
-										<option value="">Option 07</option>
-										<option value="">Option 08</option>
-										<option value="">Option 09</option>
-										<option value="">Option 10</option>
-									</select>
-								</div>
-							</div>
-						</div> <!-- End of row -->
-					</form>
-				</div> <!-- End of panel-body -->
-			</div> <!-- End of panel-components -->
-				
-			<div class="panel panel-default" id="panel-components-masked-input">
-				<div class="panel-head">
-					Masked Input
-				</div>
-				<div class="panel-body">
-					<form action="#" role="form" class="form-horizontal">
-						<div class="row">
-							<div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
-								<label class="col-lg-6 col-md-6 col-sm-6 col-xs-12 control-label" for="sample-datepicker">
-									Masked Input (Date)
-								</label>
-								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-									<input type="text" class="form-control masked-input-date" placeholder="dd/mm/yyyy" />
-								</div>
-							</div>
-							<div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
-								<label class="col-lg-6 col-md-6 col-sm-6 col-xs-12 control-label" for="sample-datepicker">
-									Masked Input (UAE Phone Number)
-								</label>
-								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-									<input type="text" class="form-control masked-input-phone-uae-short" placeholder="04-1234567" />
-								</div>
-							</div>
-						</div> <!-- End of row -->
-						<div class="row">
-							<div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
-								<label class="col-lg-6 col-md-6 col-sm-6 col-xs-12 control-label" for="sample-datepicker">
-									Masked Input (UAE Mobile Number)
-								</label>
-								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-									<input type="text" class="form-control masked-input-mobile-uae-short" placeholder="050-1234567" />
-								</div>
-							</div>
-							<div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
-								<label class="col-lg-6 col-md-6 col-sm-6 col-xs-12 control-label" for="sample-datepicker">
-									Masked Input (UAE Number With Country Code)
-								</label>
-								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-									<input type="text" class="form-control masked-input-phone-uae-long" placeholder="(971) 04-1234567" />
-								</div>
-							</div>
-						</div> <!-- End of row -->
-						<div class="row">
-							<div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
-								<label class="col-lg-6 col-md-6 col-sm-6 col-xs-12 control-label" for="sample-datepicker">
-									Masked Input (POB)
-								</label>
-								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-									<input type="text" class="form-control masked-input-pob" placeholder="12345 DXB" />
-								</div>
-							</div>
-						</div> <!-- End of row -->
-					</form>
-				</div> <!-- End of panel-body -->
-			</div> <!-- End of panel-components-masked-input -->
-			
-			<div class="panel panel-assignable-select-options">
-				<div class="panel-head">
-					Assignable Select Options
-				</div>
-				<div class="panel-body">
-					<form action="#" role="form" class="form-horizontal">
-						<div class="row">
-							<div class="container-fluid ddl-available-assigned-container">
-								<div class="form-group ddl-available-container">
-									<label class="control-label" for="services-available">
-										Available Options
-									</label>
-									<select class="select form-control has-select-all" id="services-available" multiple="multiple" size="10">
-										<option value="select-all">Select All</option>
-										<option value="1">Approver</option>
-										<option value="2">HD Daily</option>
-										<option value="3">HD Temporary</option>
-										<option value="4">HD Permanent</option>
-										<option value="5">HD Print Pass</option>
-										<option value="6">HD VIP</option>
-										<option value="7">HD Visitor</option>
-										<option value="8">Special user</option>
-										<option value="9">Host Company</option>
-									</select>
-								</div>
-								<div class="form-group ddl-available-assigned-controls move-h">
-									<div class="btn move-select-options move-from-services-available move-to-services-assigned need-numeration-services-assigned"><span class="glyphicon glyphicon-arrow-right"></span></div>
-									<div class="btn move-select-options move-from-services-assigned move-to-services-available need-numeration-services-assigned"><span class="glyphicon glyphicon-arrow-left"></span></div>
-								</div>
-								<div class="form-group required ddl-assigned-container">
-									<label class="control-label" for="services-assigned">
-										Assigned Options
-									</label>
-									<select class="select form-control" id="services-assigned" multiple="multiple" size="10">
-									</select>
-								</div>
-								<div class="form-group ddl-available-assigned-controls move-v">
-									<div class="btn move-select-options move-up-services-assigned need-numeration-services-assigned"><span class="glyphicon glyphicon-arrow-up"></span></div>
-									<div class="btn move-select-options move-down-services-assigned need-numeration-services-assigned"><span class="glyphicon glyphicon-arrow-down"></span></div>
-								</div>
-							</div>
-						</div> <!-- End of row -->
-					</form>
-				</div> <!-- End of panel-body -->
-			</div> <!-- End of panel-assignable-select-options -->
 				
 		</div> <!-- End of main-container -->
 	</section>
@@ -512,8 +963,10 @@
 	<script type="text/javascript" src="assets/libs/jquery/jquery-1.11.3.min.js"></script>
 	<script type="text/javascript" src="assets/libs/jquery/jquery-ui-1.11.4.min.js"></script>
 	<script type="text/javascript" src="assets/libs/bootstrap/js/bootstrap-3.3.6.min.js"></script>
+	<script type="text/javascript" src="assets/libs/jquery.plugins/validate/jquery.validate.min.js"></script>
 	<script type="text/javascript" src="assets/libs/jquery.plugins/chosen/chosen.jquery.min.js"></script>
 	<script type="text/javascript" src="assets/libs/jquery.plugins/maskedinput/jquery.maskedinput.min.js"></script>
+	<script type="text/javascript" src="assets/libs/plugins/bootstrap-switch/bootstrap-switch.min.js"></script>
 	<script type="text/javascript" src="assets/js/dt.core.js"></script>
 	<script type="text/javascript" src="assets/js/dt.custom.js"></script>
 </body>

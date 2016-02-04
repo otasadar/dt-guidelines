@@ -28,19 +28,17 @@ $fieldPlaceholderColor: #cccccc;
 $fieldBGColor:					#f1f1f1;
 
 // Button
-$btnSubmitColor:				#5b5b5d;
+$btnColor:							#ffffff;
+$btnDefaultColor:				lighten($baseColorDarkGray, 10%);
+$btnSubmitColor:				$baseColorMaroon;
 $btnResetColor:					#888888;
-$btnSearchColor:				#cccccc;
-$btnHoverColor:					#ffffff;
-$btnColorWhite:					#ffffff;
-$btnBGColorWhite:				#ffffff;
-$btnBorderColor:				#ffffff;
 
 // Messages
 $infoBG:								#d9edf7;
 $infoColor:							#31708f;
 $warningBG:							#fcf8e3;
 $warningColor:					#8a6d3b;
+$errorBG:								#f2dede;
 $errorColor:						#a94442;
 $successBG:							#dff0d8;
 $successColor:					#3c763d;
@@ -84,13 +82,23 @@ $successColor:					#3c763d;
 	border: 1px solid lighten($baseColorOrange, 5%);
 	@include box-shadow(1px 1px 3px lighten($baseColorOrange, 25%));
 }
-@mixin button-styles($color, $borderColor, $hoverColor, $hoverBGColor) {
+@mixin button-styles($color, $borderColor, $bgColor, $hoverColor, $hoverBorderColor, $hoverBGColor) {
 	border: 1px solid $borderColor;
+	background-color: $bgColor;
 	color: $color;
 	&:hover {
-		background: $hoverBGColor;
+		border: 1px solid $hoverBorderColor;
+		background-color: $hoverBGColor;
 		color: $hoverColor;
 	}
+}
+
+/* DEFAULTS */
+b, strong {
+	font-weight: 700;
+}
+p {
+	margin-bottom: 1em;
 }
 
 /* HEADERS */
@@ -119,6 +127,7 @@ textarea {
 /* RADIO BUTTON */
 .radio-group {
 	& label {
+		display: block;
 		cursor: pointer;
 	}
 	& input[type="radio"] {
@@ -129,6 +138,7 @@ textarea {
 /* CHECKBOX */
 .checkbox-group {
 	& label {
+		display: block;
 		cursor: pointer;
 	}
 	& input[type="checkbox"] {
@@ -153,43 +163,44 @@ select {
 }
 
 /* BUTTON */
+%ico-base {
+	padding: 0px;
+	&.active,
+	&:active {
+		box-shadow: none;
+	}
+}
 .btn {
 	background: transparent none;
 	
 	// Buttons
-	&.btn-default,
+	&.btn-default {
+		@include button-styles($btnColor, $btnDefaultColor, $btnDefaultColor, $btnColor, darken($btnDefaultColor, 10%), darken($btnDefaultColor, 10%));
+	}
 	&.btn-submit {
-		@include button-styles($btnSubmitColor, $btnSubmitColor, $btnHoverColor, $btnSubmitColor);
+		@include button-styles($btnColor, $btnSubmitColor, $btnSubmitColor, $btnColor, darken($btnSubmitColor, 10%), darken($btnSubmitColor, 10%));
 	}
 	&.btn-reset,
 	&.btn-cancel {
-		@include button-styles($btnResetColor, $btnResetColor, $btnHoverColor, $btnResetColor);
-	}
-	&.btn-search {
-		@include button-styles($btnSearchColor, $btnSearchColor, $btnHoverColor, $btnSearchColor);
+		@include button-styles($btnResetColor, $btnResetColor, $btnColor, $btnColor, $btnResetColor, $btnResetColor);
 	}
 	
 	// Button Icons
-	%ico-base {
-		padding: 0px;
-		&.active {
-			box-shadow: none;
-		}
-	}
-	&.ico-add,
-	&.ico-ok {
+	&.ico-add {
 		@extend %ico-base;
 		color: $successColor;
 	}
-	&.ico-delete,
-	&.ico-reject {
+	&.ico-delete {
 		@extend %ico-base;
 		color: $errorColor;
 	}
-	&.ico-edit,
-	&.ico-return {
+	&.ico-edit {
 		@extend %ico-base;
 		color: $warningColor;
+	}
+	&.ico-info {
+		@extend %ico-base;
+		color: $infoColor;
 	}
 }
 
@@ -262,7 +273,6 @@ select {
 		font-weight: 700;
 	}
 }
-
 
 /*********************************************************************
 *** BOOTSTRAP ********************************************************
@@ -345,25 +355,16 @@ select {
 					color: $errorColor;
 				}
 			}
-			// Field error msg container
-			&.has-error {
-				& .control-label {
-					color: $errorColor;
-				}
-				& input[type="text"],
-				& input[type="password"],
-				& textarea {
+			// Validation errors
+			& label.error {
+				color: $errorColor;
+				font-weight: 700;
+			}
+			@each $el in 'input[type="text"]', 'input[type="password"]', textarea, select {
+				& #{$el}.error {
 					border: 1px solid $errorColor;
-				}
-				& .switch .btn {
-					border-top: 1px solid $errorColor;
-					border-bottom: 1px solid $errorColor;
-					&:first-child {
-						border-left: 1px solid $errorColor;
-					}
-					&:last-child {
-						border-right: 1px solid $errorColor;
-					}
+					background-color: rgba($errorColor, 0.15);
+					@include single-box-shadow(0, 1px, 5px, 0, $errorColor);
 				}
 			}
 		}
@@ -396,6 +397,28 @@ select {
 	}
 }
 
+/* MODAL */
+@mixin dt-modal-styles($color, $bgColor) {
+	& .modal-content {
+		color: $color;
+		background-color: $bgColor;
+	}
+}
+.modal {
+	&.modal-msg-type-success {
+		@include dt-modal-styles($successColor, $successBG);
+	}
+	&.modal-msg-type-info {
+		@include dt-modal-styles($infoColor, $infoBG);
+	}
+	&.modal-msg-type-warning {
+		@include dt-modal-styles($warningColor, $warningBG);
+	}
+	&.modal-msg-type-error {
+		@include dt-modal-styles($errorColor, $errorBG);
+	}
+}
+
 /* GLYPHS */
 .glyphicon-plus {
 	color: $successColor;
@@ -411,11 +434,6 @@ select {
 /*********************************************************************
 *** COMPONENTS *******************************************************
 *********************************************************************/
-/* MODAL */
-/*.modal.in .modal-dialog {
-	transform: translate(0px, 2em);
-}*/
-
 /* JQUERY CALENDAR */
 .is-datepicker {
 	cursor: pointer;
@@ -519,7 +537,7 @@ select {
 	& .items-per-page {
 		display: table-cell;
 		& button {
-			background-color: $btnBGColorWhite;
+			background-color: #ffffff;
 		}
 	}
 	& .pagination + .items-per-page {
@@ -528,6 +546,34 @@ select {
 	}
 }
 
+/* LOADING SPINNER */
+#loading-spinner-container {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: 
+		url('../img/spinner.gif') center center no-repeat, 
+		rgba(#f1f1f1, 0.85);
+	background-size: auto;
+	z-index: 999999;
+}
+
+/* BOOTSTRAP SWITCH */
+.bootstrap-switch {
+	&.bootstrap-switch-focused {
+		@include field-style-focus;
+	}
+	& .bootstrap-switch-handle-on.bootstrap-switch-primary {
+		color: #ffffff;
+		background-color: $baseColorMaroon;
+	}
+	& .bootstrap-switch-handle-off.bootstrap-switch-default {
+		color: #ffffff;
+		background-color: lighten($baseColorDarkGray, 15%);
+	}
+}
 
 /*********************************************************************
 *** MAIN LAYOUT ******************************************************
